@@ -1,0 +1,441 @@
+{
+  "version": "1.0.0",
+  "base_url": "https://raw.githubusercontent.com/mustavikhan05/selise-blocks-docs/master/",
+  "last_updated": "2025-11-02",
+  "description": "Selise Blocks Documentation - MCP-optimized metadata for AI-driven development",
+  "topics": [
+    {
+      "id": "project-setup",
+      "title": "Project Setup Workflow",
+      "path": "workflows/project-setup.txt",
+      "type": "workflow",
+      "priority": "critical",
+      "required": true,
+      "read_order": 1,
+      "read_when": "FIRST - When user wants to build any project",
+      "use_cases": "project-initialization,vibecoding-flow,tracking-files,mcp-setup,featurelist,tasks-md,scratchpad",
+      "triggers": [
+        "new project",
+        "build app",
+        "create webapp",
+        "start project",
+        "initialize project"
+      ],
+      "warnings": [
+        "Don't skip tracking files (FEATURELIST.md, TASKS.md, SCRATCHPAD.md, CLOUD.md)",
+        "Don't implement before user confirmation",
+        "Must follow Vibecoding Experience Flow in order"
+      ],
+      "next_steps": ["get_implementation_checklist", "get_dev_workflow"],
+      "file_size_kb": 18
+    },
+    {
+      "id": "user-interaction",
+      "title": "User Interaction Workflow",
+      "path": "workflows/user-interaction.txt",
+      "type": "workflow",
+      "priority": "critical",
+      "required": true,
+      "read_order": 2,
+      "read_when": "BEFORE talking to user about requirements",
+      "use_cases": "requirement-gathering,feature-confirmation,multi-user-detection,question-templates,scope-management",
+      "triggers": [
+        "gather requirements",
+        "user wants",
+        "build",
+        "talk to user",
+        "requirements"
+      ],
+      "warnings": [
+        "Don't assume requirements",
+        "Detect multi-user apps early (ask FIRST)",
+        "Must create tracking files immediately",
+        "Get user confirmation before implementation"
+      ],
+      "next_steps": ["get_project_setup", "iam-business-mapping (if multi-user)"],
+      "file_size_kb": 14
+    },
+    {
+      "id": "feature-planning",
+      "title": "Feature Planning Workflow",
+      "path": "workflows/feature-planning.txt",
+      "type": "workflow",
+      "priority": "critical",
+      "required": true,
+      "read_order": 3,
+      "read_when": "After user confirmation, before creating schemas",
+      "use_cases": "task-breakdown,featurelist-md,scratchpad-md,cloud-md,tracking,schema-analysis,task-sequencing",
+      "triggers": [
+        "plan features",
+        "break down tasks",
+        "create tasks.md",
+        "organize work"
+      ],
+      "warnings": [
+        "Don't skip inventory pattern study for structure",
+        "Don't deviate from folder structure",
+        "Must follow task completion rhythm",
+        "Update tracking files continuously"
+      ],
+      "next_steps": ["get_implementation_checklist"],
+      "file_size_kb": 16
+    },
+    {
+      "id": "implementation-checklist",
+      "title": "Implementation Checklist",
+      "path": "workflows/implementation-checklist.txt",
+      "type": "workflow",
+      "priority": "critical",
+      "required": true,
+      "read_order": 4,
+      "read_when": "BEFORE writing any implementation code",
+      "use_cases": "pre-implementation,verification,prerequisites,readiness-check",
+      "triggers": [
+        "start coding",
+        "implement",
+        "begin development",
+        "ready to code"
+      ],
+      "warnings": [
+        "Never skip this checklist",
+        "Verify all prerequisites before coding"
+      ],
+      "next_steps": ["get_dev_workflow", "get_architecture_patterns"],
+      "file_size_kb": 8
+    },
+    {
+      "id": "dev-workflow",
+      "title": "Development Workflow",
+      "path": "workflows/dev-workflow.txt",
+      "type": "workflow",
+      "priority": "high",
+      "required": true,
+      "read_order": 5,
+      "read_when": "During implementation or when git workflow unclear",
+      "use_cases": "development-cycle,git-commits,task-tracking,scratchpad-updates,continuous-updates,commit-rhythm",
+      "triggers": [
+        "git workflow",
+        "commit",
+        "continuous updates",
+        "tasks.md",
+        "development process"
+      ],
+      "warnings": [
+        "Update TASKS.md immediately when starting/completing tasks",
+        "Update SCRATCHPAD.md continuously",
+        "Commit after EVERY task completion"
+      ],
+      "next_steps": ["get_documentation", "get_common_pitfalls"],
+      "file_size_kb": 12
+    },
+    {
+      "id": "graphql-crud",
+      "title": "GraphQL CRUD Operations Recipe",
+      "path": "recipes/graphql-crud.txt",
+      "type": "recipe",
+      "priority": "critical",
+      "required": true,
+      "read_order": 6,
+      "read_when": "BEFORE any data operations - ONLY source for GraphQL patterns",
+      "use_cases": "graphql-queries,mutations,mongodb,schema-names,data-fetching,crud-operations,filtering",
+      "triggers": [
+        "data operations",
+        "graphql",
+        "crud",
+        "queries",
+        "mutations",
+        "database",
+        "schema"
+      ],
+      "warnings": [
+        "NEVER use inventory patterns for data operations!",
+        "Always use MCP to get schema names first (list_schemas, get_schema_details)",
+        "Use _id field for filtering, NOT ItemId",
+        "Query fields: Schema name + 's' (TodoTask → TodoTasks)",
+        "Mutations: operation + schema name (insertTodoTask)",
+        "NEVER use Apollo Client - use graphqlClient from lib/graphql-client",
+        "Response has no 'data' wrapper - access result.SchemaNames.items directly"
+      ],
+      "replaces": "inventory feature data patterns",
+      "next_steps": ["get_documentation (for other patterns)"],
+      "file_size_kb": 25
+    },
+    {
+      "id": "confirmation-modal",
+      "title": "Confirmation Modal Patterns Recipe",
+      "path": "recipes/confirmation-modal-patterns.txt",
+      "type": "recipe",
+      "priority": "high",
+      "required": false,
+      "read_when": "When implementing delete or destructive actions",
+      "use_cases": "confirmations,modals,delete-operations,destructive-actions,async-operations",
+      "triggers": [
+        "delete",
+        "confirmation",
+        "modal",
+        "destructive action",
+        "confirm"
+      ],
+      "warnings": [
+        "ALWAYS use ConfirmationModal component",
+        "Never create custom confirmation dialogs",
+        "Never use browser confirm() or AlertDialog"
+      ],
+      "file_size_kb": 12
+    },
+    {
+      "id": "react-hook-form",
+      "title": "React Hook Form Integration Recipe",
+      "path": "recipes/react-hook-form-integration.txt",
+      "type": "recipe",
+      "priority": "high",
+      "required": false,
+      "read_when": "When building forms",
+      "use_cases": "forms,validation,react-hook-form,zod,user-input,form-handling,multi-step-forms",
+      "triggers": [
+        "form",
+        "input",
+        "validation",
+        "zod",
+        "user input"
+      ],
+      "warnings": [
+        "Always use React Hook Form with Zod validation",
+        "Use Form components from UI layer",
+        "Don't mix different form libraries"
+      ],
+      "file_size_kb": 14
+    },
+    {
+      "id": "iam-business-mapping",
+      "title": "IAM-to-Business-Data Mapping Recipe",
+      "path": "recipes/iam-to-business-data-mapping.txt",
+      "type": "recipe",
+      "priority": "critical",
+      "required": "conditional",
+      "read_when": "MANDATORY for multi-user apps - bridges IAM users to business data",
+      "use_cases": "multi-user-apps,data-isolation,iam-bridging,auto-provisioning,user-records,business-entities",
+      "triggers": [
+        "multi-user",
+        "user isolation",
+        "business records",
+        "data ownership",
+        "each user sees their data"
+      ],
+      "warnings": [
+        "Filter at service layer NOT component layer",
+        "Always validate business record ownership",
+        "Auto-provision business records on first login",
+        "Use email as primary bridge between IAM and business data"
+      ],
+      "next_steps": ["permissions-roles"],
+      "file_size_kb": 22
+    },
+    {
+      "id": "permissions-roles",
+      "title": "Permissions and Roles Recipe",
+      "path": "recipes/permissions-and-roles.txt",
+      "type": "recipe",
+      "priority": "critical",
+      "required": "conditional",
+      "read_when": "MANDATORY for multi-user apps - MUST create roles via MCP first",
+      "use_cases": "multi-user-apps,role-based-access,permissions,admin,user-roles,rbac,access-control",
+      "triggers": [
+        "roles",
+        "permissions",
+        "rbac",
+        "admin",
+        "access control",
+        "user types"
+      ],
+      "warnings": [
+        "MUST use MCP to create roles FIRST before implementing",
+        "Application-level security only (not server-side)",
+        "Use useUserRole() hook for permission checks",
+        "Filter data at service layer based on roles",
+        "Default to least privilege (USER role) on errors"
+      ],
+      "file_size_kb": 28
+    },
+    {
+      "id": "component-reference",
+      "title": "Component Quick Reference",
+      "path": "component-catalog/component-quick-reference.txt",
+      "type": "catalog",
+      "priority": "high",
+      "required": false,
+      "read_when": "When looking for specific components or patterns",
+      "use_cases": "component-lookup,imports,quick-reference,props,patterns",
+      "triggers": [
+        "component",
+        "import",
+        "which component",
+        "table",
+        "form",
+        "button",
+        "what component"
+      ],
+      "warnings": [
+        "Always check this before creating custom components"
+      ],
+      "file_size_kb": 10
+    },
+    {
+      "id": "component-hierarchy",
+      "title": "Selise Component Hierarchy",
+      "path": "component-catalog/selise-component-hierarchy.txt",
+      "type": "catalog",
+      "priority": "critical",
+      "required": true,
+      "read_order": 7,
+      "read_when": "When planning components or deciding architecture",
+      "use_cases": "3-layer-hierarchy,component-architecture,import-decisions,feature-vs-block-vs-ui",
+      "triggers": [
+        "3-layer",
+        "hierarchy",
+        "component structure",
+        "feature vs block",
+        "import decision"
+      ],
+      "warnings": [
+        "Always follow 3-layer rule: Feature → Block → UI",
+        "Never import business logic across features",
+        "Use Feature components when exact match exists",
+        "Use Block components for patterns",
+        "Use UI components as foundation"
+      ],
+      "file_size_kb": 15
+    },
+    {
+      "id": "constructs-structure",
+      "title": "Selise Constructs Structure",
+      "path": "component-catalog/constructs-structure.txt",
+      "type": "catalog",
+      "priority": "medium",
+      "required": false,
+      "read_when": "When exploring available Selise features and components",
+      "use_cases": "codebase-exploration,available-features,reference-patterns,feature-discovery",
+      "triggers": [
+        "what's available",
+        "selise features",
+        "existing components",
+        "what can I use"
+      ],
+      "warnings": [
+        "This is reference only - don't copy features directly"
+      ],
+      "file_size_kb": 18
+    },
+    {
+      "id": "architecture-patterns",
+      "title": "Architecture Patterns",
+      "path": "architecture/patterns.txt",
+      "type": "architecture",
+      "priority": "high",
+      "required": true,
+      "read_order": 8,
+      "read_when": "When planning features or deciding component structure",
+      "use_cases": "feature-structure,data-layer,component-patterns,state-management,folder-organization",
+      "triggers": [
+        "architecture",
+        "structure",
+        "feature setup",
+        "folder structure",
+        "organize code"
+      ],
+      "warnings": [
+        "Inventory is STRUCTURE ONLY - never copy data patterns",
+        "Use graphql-crud.md for data operations",
+        "Follow exact folder structure from inventory"
+      ],
+      "next_steps": ["get_documentation"],
+      "file_size_kb": 14
+    },
+    {
+      "id": "common-pitfalls",
+      "title": "Common Pitfalls",
+      "path": "architecture/pitfalls.txt",
+      "type": "architecture",
+      "priority": "critical",
+      "required": true,
+      "read_order": 99,
+      "read_when": "BEFORE committing code - final quality check",
+      "use_cases": "anti-patterns,code-review,quality-checks,common-mistakes,validation",
+      "triggers": [
+        "commit",
+        "review",
+        "quality check",
+        "before push",
+        "ready to commit"
+      ],
+      "warnings": [
+        "Read this before EVERY commit",
+        "Check all anti-patterns before pushing code"
+      ],
+      "file_size_kb": 12
+    },
+    {
+      "id": "agent-instructions",
+      "title": "Selise Development Agent Instructions",
+      "path": "agent-instructions/selise-development-agent.txt",
+      "type": "agent-instruction",
+      "priority": "high",
+      "required": false,
+      "read_when": "For comprehensive development guidelines and best practices",
+      "use_cases": "development-guidelines,patterns,decisions,quality,best-practices,workflow",
+      "triggers": [
+        "best practices",
+        "development patterns",
+        "how to",
+        "guidelines"
+      ],
+      "warnings": [
+        "Always use MCP for schema management",
+        "Follow 3-layer hierarchy strictly"
+      ],
+      "file_size_kb": 16
+    }
+  ],
+  "usage_notes": {
+    "read_order": "Numbers indicate mandatory reading sequence for critical docs",
+    "triggers": "Keywords that should trigger reading this topic",
+    "use_cases": "Comma-separated keywords for discovery and search",
+    "required": "true = always read, false = optional, conditional = depends on project type",
+    "warnings": "Critical anti-patterns and mistakes to avoid",
+    "next_steps": "Suggested MCP tools or topics to read next",
+    "replaces": "What this doc replaces (prevents using wrong patterns)"
+  },
+  "workflow_summary": {
+    "step_1": "list_sections - Discover all available documentation",
+    "step_2": "get_project_setup - FIRST when user wants to build",
+    "step_3": "user-interaction - Gather requirements properly",
+    "step_4": "feature-planning - Break down into tasks",
+    "step_5": "get_implementation_checklist - BEFORE coding",
+    "step_6": "get_dev_workflow - During implementation",
+    "step_7": "get_documentation - On-demand for specific patterns",
+    "step_8": "get_common_pitfalls - BEFORE every commit"
+  },
+  "multi_user_detection": {
+    "trigger_keywords": [
+      "users",
+      "roles",
+      "admin",
+      "permissions",
+      "accounts",
+      "login",
+      "authentication",
+      "only see their own",
+      "different access",
+      "user management",
+      "multi-tenant",
+      "manager can see",
+      "admin controls",
+      "user profiles",
+      "role-based"
+    ],
+    "required_topics": [
+      "iam-business-mapping",
+      "permissions-roles"
+    ]
+  }
+}
