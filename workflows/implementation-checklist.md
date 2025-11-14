@@ -44,6 +44,7 @@
 
 - [ ] Update TASKS.md when starting/completing tasks
 - [ ] Log decisions and errors in SCRATCHPAD.md
+- [ ] Follow selise component structure
 - [ ] Follow recipes for all patterns
 - [ ] Use MCP tools to verify schema details before queries
 - [ ] Commit frequently with updated tracking files
