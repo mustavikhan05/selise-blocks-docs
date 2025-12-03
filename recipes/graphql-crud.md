@@ -95,12 +95,72 @@ const filter = JSON.stringify({
 });
 ```
 
-### 4. Response Structure
+### 4. DateTime Format (CRITICAL)
+```typescript
+// 🚨 CRITICAL: Always use ISO format for DateTime fields
+
+// ❌ WRONG - Various incorrect formats
+const dueDate = new Date();  // JavaScript Date object - won't work!
+const dueDate = "2024-12-04";  // Date only - missing time
+const dueDate = "12/04/2024";  // US format - not ISO
+const dueDate = Date.now();  // Timestamp number - not ISO
+
+// ✅ CORRECT - ISO 8601 format
+const dueDate = new Date().toISOString();  // "2024-12-04T10:30:00.000Z"
+
+// Example in mutation:
+const input = {
+  Title: "Task title",
+  DueDate: new Date().toISOString(),  // ✅ Always use toISOString()
+  Status: "pending"
+};
+
+// For specific dates:
+const specificDate = new Date("2024-12-25").toISOString();  // "2024-12-25T00:00:00.000Z"
+
+// 🚨 KEY INSIGHT:
+// - Selise Cloud expects ISO 8601 format: YYYY-MM-DDTHH:mm:ss.sssZ
+// - Always use .toISOString() method on Date objects
+// - This ensures consistent timezone handling (UTC)
+```
+
+### 5. Pagination (1-Based NOT 0-Based!)
+```typescript
+// 🚨 CRITICAL: Pagination starts at 1, NOT 0!
+
+// ❌ WRONG - 0-based pagination
+const input = {
+  filter: '{}',
+  sort: '{}',
+  pageNo: 0,  // ← WRONG! This will return EMPTY results
+  pageSize: 10
+};
+
+// ✅ CORRECT - 1-based pagination
+const input = {
+  filter: '{}',
+  sort: '{}',
+  pageNo: 1,  // ← First page is 1, not 0
+  pageSize: 10
+};
+
+// Pagination examples:
+// Page 1: pageNo: 1, pageSize: 10 → Items 1-10
+// Page 2: pageNo: 2, pageSize: 10 → Items 11-20
+// Page 3: pageNo: 3, pageSize: 10 → Items 21-30
+
+// 🚨 KEY INSIGHT:
+// - pageNo: 1 = first page (NOT pageNo: 0)
+// - Common error: Starting at 0 returns empty results
+// - Unlike most APIs, Selise uses 1-based indexing
+```
+
+### 6. Response Structure & Extraction
 ```typescript
 // graphqlClient returns data directly (no 'data' wrapper):
 const result = await graphqlClient.query({...});
 
-// Access: result.[queryFieldName].items
+// ✅ CORRECT - Access: result.[queryFieldName].items
 // Remember: query field = get + SchemaName + s (lowercase 'g')
 // Examples:
 // - result.getCategorys.items (NOT getCategories!)
@@ -109,6 +169,35 @@ const result = await graphqlClient.query({...});
 
 // ⚠️ The query field name matches what you used in the GraphQL query!
 // If your query says "getCategorys", response has "getCategorys"
+
+// 🚨 CRITICAL: Response extraction pattern (handles both wrapper formats)
+// Sometimes the response comes wrapped in .data, sometimes not
+// Always use safe extraction:
+
+// ✅ BEST PRACTICE - Safe extraction pattern
+const items = result.data?.getCategorys?.items || result.getCategorys?.items || [];
+const totalCount = result.data?.getCategorys?.totalCount || result.getCategorys?.totalCount || 0;
+
+// Why this pattern?
+// - result.data?.getCategorys?.items - Handles wrapped response
+// - result.getCategorys?.items - Handles direct response
+// - || [] - Fallback for undefined/null
+// - Optional chaining (?.) prevents errors if field missing
+
+// Example in service function:
+export const getItems = async (context) => {
+  const result = await graphqlClient.query({...});
+
+  // Safe extraction
+  const items = result.data?.getCategorys?.items || result.getCategorys?.items || [];
+  const totalCount = result.data?.getCategorys?.totalCount || result.getCategorys?.totalCount || 0;
+
+  return {
+    items,
+    totalCount,
+    hasNextPage: result.data?.getCategorys?.hasNextPage || result.getCategorys?.hasNextPage || false
+  };
+};
 ```
 
 ## Implementation Pattern
@@ -117,7 +206,7 @@ const result = await graphqlClient.query({...});
 
 ```typescript
 // services/[feature].service.ts
-import { graphqlClient } from 'lib/graphql-client';  // NEVER use @apollo/client!
+import { graphqlClient } from '@/lib/graphql-client';  // NEVER use @apollo/client!
 ```
 
 ### Step 2: Define Queries (Using "get" prefix - lowercase 'g')
@@ -297,9 +386,9 @@ export const deleteItem = async (itemId: string, isHardDelete = false) => {
 
 ```typescript
 // hooks/use-[feature].ts
-import { useGlobalQuery, useGlobalMutation } from 'state/query-client/hooks';
+import { useGlobalQuery, useGlobalMutation } from '@/state/query-client/hooks';
 import { useQueryClient } from '@tanstack/react-query';
-import { useToast } from 'hooks/use-toast';
+import { useToast } from '@/hooks/use-toast';
 
 export const useGetItems = (params: {
   pageNo: number;
@@ -499,7 +588,7 @@ import { gql } from '@apollo/client';
 import { useQuery } from '@apollo/client';
 
 // ✅ CORRECT - Use Selise's graphqlClient
-import { graphqlClient } from 'lib/graphql-client';
+import { graphqlClient } from '@/lib/graphql-client';
 ```
 
 ### 4. Response Structure Confusion
@@ -734,8 +823,8 @@ This will show:
 ## File Structure Pattern
 
 ```
-src/features/[feature]/
-├── components/         # UI components
+src/modules/[feature]/
+├── component/         # UI components (singular!)
 ├── graphql/           # Queries and mutations
 │   ├── queries.ts
 │   └── mutations.ts

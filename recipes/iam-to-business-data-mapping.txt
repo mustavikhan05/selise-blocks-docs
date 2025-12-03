@@ -2,7 +2,86 @@
 
 A comprehensive guide for bridging SELISE Cloud IAM users to your business data schemas, enabling multi-user applications where each user sees only their own data.
 
-## Problem Statement
+## Decision Tree: Do You Need This Recipe?
+
+```
+Do users need data beyond name/email from IAM?
+│
+├─ NO → ✅ SIMPLE PATTERN (RECOMMENDED)
+│        • Use IAM itemId directly in business records
+│        • NO User schema needed
+│        • Add UserId field to business entities
+│        • Filter by UserId: { UserId: iamItemId }
+│        • Example: Todo app where users just need to own tasks
+│
+└─ YES → ⚠️ COMPLEX PATTERN (Only if needed)
+         • Create User schema with IAMUserId field
+         • Store additional user data (bio, avatar, preferences, etc.)
+         • Reference User.ItemId in business entities
+         • NEVER use email as foreign key!
+         • Example: Social app with user profiles, followers, etc.
+```
+
+**Key Decision Factors:**
+- ✅ Use SIMPLE pattern if users only need authentication (90% of cases)
+- ⚠️ Use COMPLEX pattern only if you need extended user profiles
+- ❌ NEVER use email as foreign key (can change, performance issues)
+
+## Simple Pattern Example (Recommended)
+
+```typescript
+// NO User schema needed!
+// Just add UserId to business entities
+
+// Schema: TodoTask
+fields = [
+  {"name": "Title", "type": "String", "required": True},
+  {"name": "UserId", "type": "String", "required": True},  // ← IAM itemId
+]
+
+// Query with user filter
+const { user } = useAuth();  // From IAM
+const filter = JSON.stringify({ UserId: user.itemId });
+
+const result = await graphqlClient.query({
+  query: GET_TODO_TASKS_QUERY,
+  variables: { input: { filter } }
+});
+
+// User automatically sees only their tasks
+```
+
+## Complex Pattern Example (Only When Needed)
+
+```typescript
+// Create User schema when you need extra data
+// Schema: User
+fields = [
+  {"name": "IAMUserId", "type": "String", "required": True},  // ← IAM reference
+  {"name": "Bio", "type": "String"},
+  {"name": "Avatar", "type": "String"},
+  {"name": "Preferences", "type": "Object"},
+]
+
+// Schema: TodoTask
+fields = [
+  {"name": "Title", "type": "String"},
+  {"name": "UserId", "type": "String"},  // ← References User.ItemId (NOT IAM)
+]
+
+// Query flow
+const { user: iamUser } = useAuth();  // IAM user
+const appUser = await getUserByIAMUserId(iamUser.itemId);  // Get app User record
+const filter = JSON.stringify({ UserId: appUser.ItemId });  // Filter by app User
+```
+
+**When Complex Pattern is Needed:**
+- User profiles with bio, avatar, etc.
+- Social features (followers, friends)
+- User-specific settings beyond IAM
+- Public user pages
+
+## Problem Statement (Detailed Guide Below)
 
 SELISE Cloud provides IAM for authentication, but your application needs business-specific data (students, orders, projects, etc.). You need to:
 

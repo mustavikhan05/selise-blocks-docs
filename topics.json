@@ -1,84 +1,40 @@
 {
   "version": "1.0.0",
   "base_url": "https://raw.githubusercontent.com/mustavikhan05/selise-blocks-docs/master/",
-  "last_updated": "2025-11-02",
+  "last_updated": "2025-12-04",
   "description": "Selise Blocks Documentation - MCP-optimized metadata for AI-driven development",
   "topics": [
     {
       "id": "project-setup",
-      "title": "Project Setup Workflow",
+      "title": "Project Setup - Complete Workflow",
       "path": "workflows/project-setup.txt",
       "type": "workflow",
       "priority": "critical",
       "required": true,
       "read_order": 1,
-      "read_when": "FIRST - When user wants to build any project",
-      "use_cases": "project-initialization,vibecoding-flow,tracking-files,mcp-setup,featurelist,tasks-md,scratchpad",
+      "read_when": "Starting new Selise Blocks project",
+      "use_cases": "setup,initialization,project-creation,always",
       "triggers": [
+        "starting new project",
+        "first time setup",
         "new project",
         "build app",
-        "create webapp",
-        "start project",
-        "initialize project"
+        "create webapp"
       ],
       "warnings": [
-        "Don't skip tracking files (FEATURELIST.md, TASKS.md, SCRATCHPAD.md, CLOUD.md)",
-        "Don't implement before user confirmation",
-        "Must follow Vibecoding Experience Flow in order"
+        "MUST create local repository (NOT optional)",
+        "MUST call set_application_domain after create_project",
+        "Ask for requirements BEFORE authentication"
       ],
-      "next_steps": ["get userinteraction and feature planning and selise dev agent"],
-      "file_size_kb": 18
-    },
-    {
-      "id": "user-interaction",
-      "title": "User Interaction Workflow",
-      "path": "workflows/user-interaction.txt",
-      "type": "workflow",
-      "priority": "critical",
-      "required": true,
-      "read_order": 2,
-      "read_when": "BEFORE talking to user about requirements",
-      "use_cases": "requirement-gathering,feature-confirmation,multi-user-detection,question-templates,scope-management",
-      "triggers": [
-        "gather requirements",
-        "user wants",
-        "build",
-        "talk to user",
-        "requirements"
+      "phases": [
+        "Phase 0: Documentation Discovery",
+        "Phase 1: User Requirements",
+        "Phase 2: Authentication & Project",
+        "Phase 3: Local Repository",
+        "Phase 4: Schema Planning",
+        "Phase 5: Implementation Prep"
       ],
-      "warnings": [
-        "Don't assume requirements",
-        "Detect multi-user apps early (ask FIRST)",
-        "Must create tracking files immediately",
-        "Get user confirmation before implementation"
-      ],
-      "next_steps": ["feature planning"],
-      "file_size_kb": 14
-    },
-    {
-      "id": "feature-planning",
-      "title": "Feature Planning Workflow",
-      "path": "workflows/feature-planning.txt",
-      "type": "workflow",
-      "priority": "critical",
-      "required": true,
-      "read_order": 3,
-      "read_when": "After user confirmation, before creating schemas",
-      "use_cases": "task-breakdown,featurelist-md,scratchpad-md,cloud-md,tracking,schema-analysis,task-sequencing",
-      "triggers": [
-        "plan features",
-        "break down tasks",
-        "create tasks.md",
-        "organize work"
-      ],
-      "warnings": [
-        "Don't skip inventory pattern study for structure",
-        "Don't deviate from folder structure",
-        "Must follow task completion rhythm",
-        "Update tracking files continuously"
-      ],
-      "next_steps": ["implementation-checklist"],
-      "file_size_kb": 16
+      "file_size_kb": 22
     },
     {
       "id": "implementation-checklist",
@@ -130,35 +86,94 @@
     },
     {
       "id": "graphql-crud",
-      "title": "GraphQL CRUD Operations Recipe",
+      "title": "GraphQL CRUD Operations",
       "path": "recipes/graphql-crud.txt",
       "type": "recipe",
       "priority": "critical",
       "required": true,
-      "read_order": 6,
-      "read_when": "BEFORE any data operations - ONLY source for GraphQL patterns",
-      "use_cases": "graphql-queries,mutations,mongodb,schema-names,data-fetching,crud-operations,filtering",
+      "read_order": 5,
+      "read_when": "ALWAYS (for data operations)",
+      "use_cases": "data,graphql,queries,mutations,crud,errors,debugging,always",
       "triggers": [
-        "data operations",
-        "graphql",
-        "crud",
-        "queries",
-        "mutations",
-        "database",
-        "schema"
+        "implementing data operations",
+        "GraphQL errors",
+        "query not working",
+        "field does not exist",
+        "unexpected execution error"
       ],
       "warnings": [
-        "NEVER use inventory patterns for data operations!",
-        "Always use MCP to get schema names first (list_schemas, get_schema_details)",
-        "Use _id field for filtering, NOT ItemId",
-        "Query fields: Schema name + 's' (TodoTask → TodoTasks)",
-        "Mutations: operation + schema name (insertTodoTask)",
-        "NEVER use Apollo Client - use graphqlClient from lib/graphql-client",
-        "Response has no 'data' wrapper - access result.SchemaNames.items directly"
+        "CRITICAL: Use lowercase 'get' prefix (getTodoTasks NOT TodoTasks)",
+        "DateTime must be ISO format: new Date().toISOString()",
+        "Pagination is 1-based (pageNo: 1 for first page)",
+        "Filter uses _id NOT ItemId",
+        "Response needs extraction: result.data?.X || result.X"
       ],
-      "replaces": "inventory feature data patterns",
-      "next_steps": [],
-      "file_size_kb": 25
+      "file_size_kb": 32
+    },
+    {
+      "id": "react-query-patterns",
+      "title": "React Query Hooks Patterns",
+      "path": "recipes/react-query-patterns.txt",
+      "type": "recipe",
+      "priority": "critical",
+      "required": true,
+      "read_order": 6,
+      "read_when": "When creating hooks or implementing queries/mutations",
+      "use_cases": "hooks,react-query,data-fetching,mutations,caching,always",
+      "triggers": [
+        "creating hooks",
+        "implementing queries",
+        "implementing mutations",
+        "query invalidation"
+      ],
+      "warnings": [
+        "MUST use useGlobalQuery and useGlobalMutation wrappers",
+        "Include userId in queryKey for multi-user data isolation"
+      ],
+      "file_size_kb": 18
+    },
+    {
+      "id": "schema-design-guide",
+      "title": "Schema Design Guide",
+      "path": "recipes/schema-design-guide.txt",
+      "type": "recipe",
+      "priority": "critical",
+      "required": true,
+      "read_order": 3,
+      "read_when": "Before creating schemas or planning data model",
+      "use_cases": "schemas,database,mongodb,nosql,data-modeling,always",
+      "triggers": [
+        "before creating schemas",
+        "planning data model",
+        "designing fields"
+      ],
+      "warnings": [
+        "Auto-generated fields: ItemId, CreatedDate, etc. - DO NOT add manually",
+        "Use PascalCase for schema fields",
+        "Use _id for MongoDB filtering (NOT ItemId)"
+      ],
+      "file_size_kb": 16
+    },
+    {
+      "id": "component-reusability-rules",
+      "title": "Component Import Rules",
+      "path": "recipes/component-reusability-rules.txt",
+      "type": "recipe",
+      "priority": "high",
+      "required": true,
+      "read_order": 7,
+      "read_when": "Before importing components or creating new components",
+      "use_cases": "components,imports,architecture,modules,always",
+      "triggers": [
+        "before importing component",
+        "cross-module import error",
+        "component not found"
+      ],
+      "warnings": [
+        "FORBIDDEN: Never import from other modules (modules/inventory/*)",
+        "REQUIRED: Use @/ prefix for ALL imports"
+      ],
+      "file_size_kb": 14
     },
     {
       "id": "confirmation-modal",
@@ -208,52 +223,47 @@
     },
     {
       "id": "iam-business-mapping",
-      "title": "IAM-to-Business-Data Mapping Recipe",
+      "title": "IAM to Business Data Mapping",
       "path": "recipes/iam-to-business-data-mapping.txt",
       "type": "recipe",
-      "priority": "critical",
+      "priority": "high",
       "required": "conditional",
-      "read_when": "MANDATORY for multi-user apps - bridges IAM users to business data",
-      "use_cases": "multi-user-apps,data-isolation,iam-bridging,auto-provisioning,user-records,business-entities",
+      "read_when": "Multi-user apps requiring user authentication",
+      "use_cases": "authentication,multi-user,iam,user-management",
       "triggers": [
-        "multi-user",
-        "user isolation",
-        "business records",
-        "data ownership",
-        "each user sees their data"
+        "multi-user app",
+        "user authentication",
+        "before creating User schema"
       ],
       "warnings": [
-        "Filter at service layer NOT component layer",
-        "Always validate business record ownership",
-        "Auto-provision business records on first login",
-        "Use email as primary bridge between IAM and business data"
+        "Simple apps: Use IAM itemId directly (NO User schema needed)",
+        "Complex apps: User schema with IAMUserId field (NOT email)",
+        "NEVER use email as foreign key (can change, performance issues)"
       ],
-      "next_steps": ["permissions-roles"],
+      "decision_tree": {
+        "question": "Do users need data beyond name/email from IAM?",
+        "no": "Use IAM itemId directly - no User schema",
+        "yes": "Create User schema with IAMUserId reference"
+      },
       "file_size_kb": 22
     },
     {
       "id": "permissions-roles",
-      "title": "Permissions and Roles Recipe",
+      "title": "Permissions and Roles",
       "path": "recipes/permissions-and-roles.txt",
       "type": "recipe",
-      "priority": "critical",
+      "priority": "medium",
       "required": "conditional",
-      "read_when": "MANDATORY for multi-user apps - MUST create roles via MCP first",
-      "use_cases": "multi-user-apps,role-based-access,permissions,admin,user-roles,rbac,access-control",
+      "read_when": "Role-based access control needed (admin panels, etc.)",
+      "use_cases": "rbac,permissions,roles,admin,access-control",
       "triggers": [
-        "roles",
-        "permissions",
-        "rbac",
-        "admin",
-        "access control",
-        "user types"
+        "role-based access control needed",
+        "admin panels",
+        "permissions system"
       ],
       "warnings": [
-        "MUST use MCP to create roles FIRST before implementing",
-        "Application-level security only (not server-side)",
-        "Use useUserRole() hook for permission checks",
-        "Filter data at service layer based on roles",
-        "Default to least privilege (USER role) on errors"
+        "NOT needed for simple multi-user apps (where all users equal)",
+        "Only needed for role-based access control"
       ],
       "file_size_kb": 28
     },
