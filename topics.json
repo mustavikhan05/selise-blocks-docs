@@ -56,7 +56,10 @@
         "Never skip this checklist",
         "Verify all prerequisites before coding"
       ],
-      "next_steps": ["dev-workflow", "architecture-patterns"],
+      "next_steps": [
+        "dev-workflow",
+        "architecture-patterns"
+      ],
       "file_size_kb": 8
     },
     {
@@ -81,7 +84,9 @@
         "Update SCRATCHPAD.md continuously",
         "Commit after EVERY task completion"
       ],
-      "next_steps": ["common-pitfalls"],
+      "next_steps": [
+        "common-pitfalls"
+      ],
       "file_size_kb": 12
     },
     {
@@ -308,7 +313,7 @@
         "import decision"
       ],
       "warnings": [
-        "Always follow 3-layer rule: Feature → Block → UI",
+        "Always follow 3-layer rule: Feature \u2192 Block \u2192 UI",
         "Never import business logic across features",
         "Use Feature components when exact match exists",
         "Use Block components for patterns",
@@ -426,8 +431,14 @@
         "Uses menuItems constant for navigation - define menu structure first",
         "Auto-collapses on mobile route changes"
       ],
-      "next_steps": ["sidebar-menu-item", "menu-section", "logo-section"],
-      "file_size_kb": 0
+      "next_steps": [
+        "sidebar-menu-item",
+        "menu-section",
+        "logo-section"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "base-password-form",
@@ -451,8 +462,15 @@
         "CAPTCHA integration requires VITE_CAPTCHA_SITE_KEY and VITE_CAPTCHA_TYPE env vars",
         "Navigates to /success after submission - ensure route exists"
       ],
-      "next_steps": ["password-input", "shared-password-strength-checker", "captcha", "react-hook-form"],
-      "file_size_kb": 0
+      "next_steps": [
+        "password-input",
+        "shared-password-strength-checker",
+        "captcha",
+        "react-hook-form"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "captcha",
@@ -475,7 +493,9 @@
         "Supports only reCaptcha-v2-checkbox and hCaptcha types",
         "Type prop is required - throws error if not provided"
       ],
-      "file_size_kb": 0
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "confirmation-modal",
@@ -498,8 +518,12 @@
         "Auto-closes after confirm unless preventAutoClose is true",
         "High z-index (z-[100]) - ensure no conflicts with other modals"
       ],
-      "next_steps": ["alert-dialog"],
-      "file_size_kb": 0
+      "next_steps": [
+        "alert-dialog"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "custom-avatar",
@@ -521,7 +545,9 @@
         "Falls back to first character of name if no image provided",
         "Grid background can be disabled with showGrid prop"
       ],
-      "file_size_kb": 0
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "custom-checkbox",
@@ -543,8 +569,12 @@
         "Use this instead of ui-kit/checkbox for consistent form styling",
         "Currently has hardcoded id='terms' - may need unique IDs for multiple checkboxes"
       ],
-      "next_steps": ["checkbox"],
-      "file_size_kb": 0
+      "next_steps": [
+        "checkbox"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "custom-pagination-email",
@@ -565,7 +595,9 @@
         "Designed for email-type interfaces - use data-table pagination for complex tables",
         "Manages internal page state - ensure proper sync with parent component"
       ],
-      "file_size_kb": 0
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "custom-text-editor",
@@ -588,7 +620,9 @@
         "Requires Quill library installation (quill/dist/quill.snow.css)",
         "Editor content is HTML - sanitize if displaying user-generated content"
       ],
-      "file_size_kb": 0
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "data-table",
@@ -614,8 +648,12 @@
         "Supports both client-side and server-side pagination via manualPagination prop",
         "Mobile view requires mobileColumns configuration for proper display"
       ],
-      "next_steps": ["table"],
-      "file_size_kb": 0
+      "next_steps": [
+        "table"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "divider",
@@ -633,7 +671,9 @@
         "section break",
         "or divider"
       ],
-      "file_size_kb": 0
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "dynamic-breadcrumb",
@@ -656,8 +696,12 @@
         "Hidden on small screens (responsive)",
         "Use breadcrumbIndex prop to skip initial path segments"
       ],
-      "next_steps": ["breadcrumb"],
-      "file_size_kb": 0
+      "next_steps": [
+        "breadcrumb"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "error-alert",
@@ -679,7 +723,9 @@
         "Auto-dismisses after 5 seconds",
         "Triggered by isError boolean prop"
       ],
-      "file_size_kb": 0
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "extension-banner",
@@ -701,7 +747,9 @@
         "Only visible on specific domains (construct.seliseblocks.com, stg, dev)",
         "Hardcoded Chrome Web Store link"
       ],
-      "file_size_kb": 0
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "loading-overlay",
@@ -723,7 +771,9 @@
         "Fixed position covering entire screen (z-50)",
         "Blocks all interactions when visible"
       ],
-      "file_size_kb": 0
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "logo-section",
@@ -734,9 +784,19 @@
       "required": false,
       "read_when": "When implementing logo display in sidebar with theme and responsive support",
       "use_cases": "logo,sidebar-logo,theme-logo,mobile-logo,branding,logo-switching",
-      "triggers": ["logo", "branding", "sidebar logo", "logo section"],
-      "warnings": ["Requires theme provider context", "Shows different logos for expanded/collapsed and light/dark states"],
-      "file_size_kb": 0
+      "triggers": [
+        "logo",
+        "branding",
+        "sidebar logo",
+        "logo section"
+      ],
+      "warnings": [
+        "Requires theme provider context",
+        "Shows different logos for expanded/collapsed and light/dark states"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "menu-icon",
@@ -747,9 +807,17 @@
       "required": false,
       "read_when": "When mapping icon names to Lucide icons for menu items",
       "use_cases": "menu-icon,icon-mapping,lucide-icons,sidebar-icons,navigation-icons",
-      "triggers": ["menu icon", "icon mapping", "lucide icons"],
-      "warnings": ["Limited to predefined icon set - add new icons to iconMap"],
-      "file_size_kb": 0
+      "triggers": [
+        "menu icon",
+        "icon mapping",
+        "lucide icons"
+      ],
+      "warnings": [
+        "Limited to predefined icon set - add new icons to iconMap"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "menu-section",
@@ -760,9 +828,17 @@
       "required": false,
       "read_when": "When implementing categorized menu sections in sidebar",
       "use_cases": "menu-section,sidebar-section,menu-category,navigation-section",
-      "triggers": ["menu section", "sidebar section", "menu category"],
-      "next_steps": ["sidebar-menu-item"],
-      "file_size_kb": 0
+      "triggers": [
+        "menu section",
+        "sidebar section",
+        "menu category"
+      ],
+      "next_steps": [
+        "sidebar-menu-item"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "notification",
@@ -773,9 +849,20 @@
       "required": false,
       "read_when": "When implementing notification center with real-time updates",
       "use_cases": "notification,notification-center,alerts,real-time-notifications,notification-bell,push-notifications",
-      "triggers": ["notification", "notification center", "alerts", "notifications"],
-      "warnings": ["Requires @seliseblocks/notifications package", "Needs VITE_X_BLOCKS_KEY and VITE_API_BASE_URL env vars", "Uses WebSocket subscriptions for real-time updates"],
-      "file_size_kb": 0
+      "triggers": [
+        "notification",
+        "notification center",
+        "alerts",
+        "notifications"
+      ],
+      "warnings": [
+        "Requires @seliseblocks/notifications package",
+        "Needs VITE_X_BLOCKS_KEY and VITE_API_BASE_URL env vars",
+        "Uses WebSocket subscriptions for real-time updates"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "otp-input",
@@ -786,9 +873,20 @@
       "required": false,
       "read_when": "When implementing OTP or verification code input fields",
       "use_cases": "otp,one-time-password,verification-code,2fa,mfa,code-input",
-      "triggers": ["otp", "one time password", "verification code", "2fa", "mfa"],
-      "warnings": ["Requires react-otp-input library", "Default is 6 inputs - configure with numInputs prop"],
-      "file_size_kb": 0
+      "triggers": [
+        "otp",
+        "one time password",
+        "verification code",
+        "2fa",
+        "mfa"
+      ],
+      "warnings": [
+        "Requires react-otp-input library",
+        "Default is 6 inputs - configure with numInputs prop"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "password-input",
@@ -799,9 +897,18 @@
       "required": false,
       "read_when": "When implementing password input fields with visibility toggle",
       "use_cases": "password-input,password-field,secure-input,toggle-password,password-visibility",
-      "triggers": ["password input", "password field", "secure input", "toggle password"],
-      "warnings": ["Forwards ref for form library integration"],
-      "file_size_kb": 0
+      "triggers": [
+        "password input",
+        "password field",
+        "secure input",
+        "toggle password"
+      ],
+      "warnings": [
+        "Forwards ref for form library integration"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "password-strength-checker",
@@ -812,9 +919,18 @@
       "required": false,
       "read_when": "When implementing password strength visualization with requirement checklist",
       "use_cases": "password-strength,strength-meter,password-validation,password-requirements,password-checker",
-      "triggers": ["password strength", "strength meter", "password requirements"],
-      "warnings": ["Requirements: 8-30 chars, uppercase, lowercase, number, special char (@$!%*?&)", "Percentage-based scoring (0-100%)"],
-      "file_size_kb": 0
+      "triggers": [
+        "password strength",
+        "strength meter",
+        "password requirements"
+      ],
+      "warnings": [
+        "Requirements: 8-30 chars, uppercase, lowercase, number, special char (@$!%*?&)",
+        "Percentage-based scoring (0-100%)"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "phone-input",
@@ -825,9 +941,19 @@
       "required": false,
       "read_when": "When implementing international phone number input with country selection",
       "use_cases": "phone-input,telephone,phone-number,international-phone,country-code",
-      "triggers": ["phone input", "phone number", "telephone", "international phone"],
-      "warnings": ["Requires react-phone-number-input library and styles", "Includes custom CSS file phone-input.css"],
-      "file_size_kb": 0
+      "triggers": [
+        "phone input",
+        "phone number",
+        "telephone",
+        "international phone"
+      ],
+      "warnings": [
+        "Requires react-phone-number-input library and styles",
+        "Includes custom CSS file phone-input.css"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "profile-menu",
@@ -838,9 +964,20 @@
       "required": false,
       "read_when": "When implementing user profile dropdown with account options and logout",
       "use_cases": "profile-menu,user-menu,account-menu,dropdown-profile,logout,theme-toggle",
-      "triggers": ["profile menu", "user menu", "account menu", "user dropdown"],
-      "warnings": ["Requires useAuthStore and useGetAccount hooks", "Includes theme toggle functionality", "Handles logout with API call"],
-      "file_size_kb": 0
+      "triggers": [
+        "profile menu",
+        "user menu",
+        "account menu",
+        "user dropdown"
+      ],
+      "warnings": [
+        "Requires useAuthStore and useGetAccount hooks",
+        "Includes theme toggle functionality",
+        "Handles logout with API call"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "sidebar-menu-item",
@@ -851,10 +988,22 @@
       "required": false,
       "read_when": "When implementing individual sidebar menu items with nested children support",
       "use_cases": "sidebar-item,menu-item,navigation-item,collapsible-menu,nested-menu",
-      "triggers": ["sidebar item", "menu item", "navigation item", "nested menu"],
-      "warnings": ["Supports nested children with collapsible sub-menus", "Auto-expands when child route is active"],
-      "next_steps": ["menu-icon"],
-      "file_size_kb": 0
+      "triggers": [
+        "sidebar item",
+        "menu item",
+        "navigation item",
+        "nested menu"
+      ],
+      "warnings": [
+        "Supports nested children with collapsible sub-menus",
+        "Auto-expands when child route is active"
+      ],
+      "next_steps": [
+        "menu-icon"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "shared-password-strength-checker",
@@ -865,9 +1014,18 @@
       "required": false,
       "read_when": "When implementing password strength checker with current password exclusion",
       "use_cases": "shared-password-strength,password-change,password-validation,exclude-current-password",
-      "triggers": ["shared password strength", "password change", "exclude password"],
-      "warnings": ["Supports excluding current password (useful for password change forms)", "Uses usePasswordStrength hook"],
-      "file_size_kb": 0
+      "triggers": [
+        "shared password strength",
+        "password change",
+        "exclude password"
+      ],
+      "warnings": [
+        "Supports excluding current password (useful for password change forms)",
+        "Uses usePasswordStrength hook"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "accordion",
@@ -878,8 +1036,15 @@
       "required": false,
       "read_when": "When implementing collapsible content sections like FAQs or expandable panels",
       "use_cases": "accordion,collapsible,expandable,faq,collapse-panel,radix-accordion",
-      "triggers": ["accordion", "collapsible", "expandable", "faq"],
-      "file_size_kb": 0
+      "triggers": [
+        "accordion",
+        "collapsible",
+        "expandable",
+        "faq"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "alert-dialog",
@@ -890,9 +1055,19 @@
       "required": false,
       "read_when": "When implementing confirmation dialogs or critical alerts that require user action",
       "use_cases": "alert,dialog,alert-dialog,modal,warning-dialog,confirmation,destructive-action",
-      "triggers": ["alert dialog", "alert", "warning dialog", "confirm"],
-      "warnings": ["Use for critical actions that need user confirmation", "Includes action and cancel buttons"],
-      "file_size_kb": 0
+      "triggers": [
+        "alert dialog",
+        "alert",
+        "warning dialog",
+        "confirm"
+      ],
+      "warnings": [
+        "Use for critical actions that need user confirmation",
+        "Includes action and cancel buttons"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "avatar",
@@ -903,10 +1078,19 @@
       "required": false,
       "read_when": "When implementing basic avatar/profile pictures without grid backgrounds",
       "use_cases": "avatar,profile-picture,user-image,basic-avatar,radix-avatar",
-      "triggers": ["avatar", "profile picture"],
-      "warnings": ["Use custom-avatar from core for grid backgrounds and more features"],
-      "next_steps": ["custom-avatar"],
-      "file_size_kb": 0
+      "triggers": [
+        "avatar",
+        "profile picture"
+      ],
+      "warnings": [
+        "Use custom-avatar from core for grid backgrounds and more features"
+      ],
+      "next_steps": [
+        "custom-avatar"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "badge",
@@ -917,9 +1101,18 @@
       "required": false,
       "read_when": "When implementing badges, labels, or status indicators",
       "use_cases": "badge,label,tag,status-badge,notification-badge,pill,variant-badge",
-      "triggers": ["badge", "tag", "label", "status"],
-      "warnings": ["Supports variants: default, secondary, destructive, outline"],
-      "file_size_kb": 0
+      "triggers": [
+        "badge",
+        "tag",
+        "label",
+        "status"
+      ],
+      "warnings": [
+        "Supports variants: default, secondary, destructive, outline"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "breadcrumb",
@@ -930,10 +1123,19 @@
       "required": false,
       "read_when": "When implementing manual breadcrumb navigation trails",
       "use_cases": "breadcrumb,navigation,trail,basic-breadcrumb,manual-breadcrumb",
-      "triggers": ["breadcrumb", "navigation trail"],
-      "warnings": ["Use dynamic-breadcrumb from core for URL-based automatic breadcrumbs"],
-      "next_steps": ["dynamic-breadcrumb"],
-      "file_size_kb": 0
+      "triggers": [
+        "breadcrumb",
+        "navigation trail"
+      ],
+      "warnings": [
+        "Use dynamic-breadcrumb from core for URL-based automatic breadcrumbs"
+      ],
+      "next_steps": [
+        "dynamic-breadcrumb"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "button",
@@ -944,9 +1146,19 @@
       "required": false,
       "read_when": "When implementing any clickable actions, CTAs, or form submissions",
       "use_cases": "button,action,cta,click,submit,primary-button,secondary-button,loading-button",
-      "triggers": ["button", "submit", "action", "cta"],
-      "warnings": ["Supports loading state with spinner", "Multiple variants and sizes available"],
-      "file_size_kb": 0
+      "triggers": [
+        "button",
+        "submit",
+        "action",
+        "cta"
+      ],
+      "warnings": [
+        "Supports loading state with spinner",
+        "Multiple variants and sizes available"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "calendar",
@@ -957,9 +1169,18 @@
       "required": false,
       "read_when": "When implementing date pickers, date range selection, or scheduling interfaces",
       "use_cases": "calendar,date-picker,date-selection,schedule,react-day-picker,date-range",
-      "triggers": ["calendar", "date picker", "date selection"],
-      "warnings": ["Built on react-day-picker", "Supports range selection and custom formatters"],
-      "file_size_kb": 0
+      "triggers": [
+        "calendar",
+        "date picker",
+        "date selection"
+      ],
+      "warnings": [
+        "Built on react-day-picker",
+        "Supports range selection and custom formatters"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "card",
@@ -970,9 +1191,20 @@
       "required": false,
       "read_when": "When implementing any container, panel, or layout wrapper",
       "use_cases": "card,wrapper,layout,container,dark-mode,light-mode,overlay,panel",
-      "triggers": ["card", "wrapper", "container", "layout", "panel"],
-      "warnings": ["CRITICAL component - used everywhere", "Supports CardHeader, CardTitle, CardDescription, CardContent, CardFooter"],
-      "file_size_kb": 0
+      "triggers": [
+        "card",
+        "wrapper",
+        "container",
+        "layout",
+        "panel"
+      ],
+      "warnings": [
+        "CRITICAL component - used everywhere",
+        "Supports CardHeader, CardTitle, CardDescription, CardContent, CardFooter"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "chart",
@@ -983,9 +1215,20 @@
       "required": false,
       "read_when": "When implementing data visualizations, graphs, or analytics displays",
       "use_cases": "chart,graph,visualization,data-visualization,analytics,recharts,tooltip,legend",
-      "triggers": ["chart", "graph", "visualization", "analytics"],
-      "warnings": ["Built on Recharts", "Requires ChartConfig for theming", "Includes tooltip and legend components"],
-      "file_size_kb": 0
+      "triggers": [
+        "chart",
+        "graph",
+        "visualization",
+        "analytics"
+      ],
+      "warnings": [
+        "Built on Recharts",
+        "Requires ChartConfig for theming",
+        "Includes tooltip and legend components"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "checkbox",
@@ -996,10 +1239,19 @@
       "required": false,
       "read_when": "When implementing standalone checkboxes outside of forms",
       "use_cases": "checkbox,basic-checkbox,toggle,radix-checkbox",
-      "triggers": ["checkbox", "toggle"],
-      "warnings": ["Use custom-checkbox from core for form inputs instead"],
-      "next_steps": ["custom-checkbox"],
-      "file_size_kb": 0
+      "triggers": [
+        "checkbox",
+        "toggle"
+      ],
+      "warnings": [
+        "Use custom-checkbox from core for form inputs instead"
+      ],
+      "next_steps": [
+        "custom-checkbox"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "collapsible",
@@ -1010,8 +1262,15 @@
       "required": false,
       "read_when": "When implementing collapsible/expandable content sections",
       "use_cases": "collapsible,expandable,collapse,expand,toggle-content,radix-collapsible",
-      "triggers": ["collapsible", "expandable", "collapse", "expand"],
-      "file_size_kb": 0
+      "triggers": [
+        "collapsible",
+        "expandable",
+        "collapse",
+        "expand"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "command",
@@ -1022,9 +1281,18 @@
       "required": false,
       "read_when": "When implementing command palettes, search interfaces, or quick action menus",
       "use_cases": "command,command-palette,search,quick-actions,cmdk,keyboard-shortcuts",
-      "triggers": ["command", "command palette", "quick search"],
-      "warnings": ["Built on cmdk library", "Includes CommandDialog for modal presentation"],
-      "file_size_kb": 0
+      "triggers": [
+        "command",
+        "command palette",
+        "quick search"
+      ],
+      "warnings": [
+        "Built on cmdk library",
+        "Includes CommandDialog for modal presentation"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "dialog",
@@ -1035,9 +1303,18 @@
       "required": false,
       "read_when": "When implementing modal dialogs, popups, or overlay content",
       "use_cases": "dialog,modal,popup,overlay-dialog,radix-dialog",
-      "triggers": ["dialog", "modal", "popup"],
-      "warnings": ["Includes hideClose prop to hide close button", "Prevents outside clicks by default"],
-      "file_size_kb": 0
+      "triggers": [
+        "dialog",
+        "modal",
+        "popup"
+      ],
+      "warnings": [
+        "Includes hideClose prop to hide close button",
+        "Prevents outside clicks by default"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "dropdown-menu",
@@ -1048,9 +1325,18 @@
       "required": false,
       "read_when": "When implementing dropdown menus, context menus, or action menus",
       "use_cases": "dropdown,menu,dropdown-menu,context-menu,select-menu,actions-menu",
-      "triggers": ["dropdown", "dropdown menu", "context menu"],
-      "warnings": ["Supports checkbox items, radio groups, and sub-menus", "Includes destructive variant for delete actions"],
-      "file_size_kb": 0
+      "triggers": [
+        "dropdown",
+        "dropdown menu",
+        "context menu"
+      ],
+      "warnings": [
+        "Supports checkbox items, radio groups, and sub-menus",
+        "Includes destructive variant for delete actions"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "form",
@@ -1061,10 +1347,21 @@
       "required": false,
       "read_when": "When implementing any forms with validation and error handling",
       "use_cases": "form,form-handling,react-hook-form,validation,form-wrapper,field-validation",
-      "triggers": ["form", "form handling", "form wrapper"],
-      "warnings": ["CRITICAL - Built on react-hook-form", "Provides FormField, FormItem, FormLabel, FormControl, FormMessage"],
-      "next_steps": ["react-hook-form"],
-      "file_size_kb": 0
+      "triggers": [
+        "form",
+        "form handling",
+        "form wrapper"
+      ],
+      "warnings": [
+        "CRITICAL - Built on react-hook-form",
+        "Provides FormField, FormItem, FormLabel, FormControl, FormMessage"
+      ],
+      "next_steps": [
+        "react-hook-form"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "input",
@@ -1075,8 +1372,15 @@
       "required": false,
       "read_when": "When implementing text inputs, email fields, or any basic input fields",
       "use_cases": "input,text-input,form-input,user-input,text-field",
-      "triggers": ["input", "text input", "form field", "text field"],
-      "file_size_kb": 0
+      "triggers": [
+        "input",
+        "text input",
+        "form field",
+        "text field"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "label",
@@ -1087,8 +1391,14 @@
       "required": false,
       "read_when": "When implementing form labels or input labels",
       "use_cases": "label,form-label,input-label,field-label,radix-label",
-      "triggers": ["label", "form label", "field label"],
-      "file_size_kb": 0
+      "triggers": [
+        "label",
+        "form label",
+        "field label"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "menubar",
@@ -1099,9 +1409,17 @@
       "required": false,
       "read_when": "When implementing horizontal menu bars or top navigation menus",
       "use_cases": "menubar,menu,navigation-menu,top-menu,menu-bar,horizontal-menu",
-      "triggers": ["menubar", "menu bar", "navigation menu"],
-      "warnings": ["Supports nested sub-menus, checkbox items, and radio groups"],
-      "file_size_kb": 0
+      "triggers": [
+        "menubar",
+        "menu bar",
+        "navigation menu"
+      ],
+      "warnings": [
+        "Supports nested sub-menus, checkbox items, and radio groups"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "popover",
@@ -1112,8 +1430,14 @@
       "required": false,
       "read_when": "When implementing popovers, tooltips with rich content, or floating panels",
       "use_cases": "popover,tooltip,popup,floating-content,radix-popover",
-      "triggers": ["popover", "popup", "floating"],
-      "file_size_kb": 0
+      "triggers": [
+        "popover",
+        "popup",
+        "floating"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "radio-group",
@@ -1124,8 +1448,14 @@
       "required": false,
       "read_when": "When implementing radio button groups for mutually exclusive selections",
       "use_cases": "radio,radio-button,radio-group,option-selector,radix-radio",
-      "triggers": ["radio", "radio button", "radio group"],
-      "file_size_kb": 0
+      "triggers": [
+        "radio",
+        "radio button",
+        "radio group"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "scroll-area",
@@ -1136,8 +1466,14 @@
       "required": false,
       "read_when": "When implementing custom scrollable areas with styled scrollbars",
       "use_cases": "scroll,scroll-area,scrollable,custom-scroll,radix-scroll-area",
-      "triggers": ["scroll", "scrollable", "scroll area"],
-      "file_size_kb": 0
+      "triggers": [
+        "scroll",
+        "scrollable",
+        "scroll area"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "select",
@@ -1148,9 +1484,18 @@
       "required": false,
       "read_when": "When implementing dropdown select menus or option pickers",
       "use_cases": "select,dropdown,select-menu,option-picker,combobox,radix-select",
-      "triggers": ["select", "dropdown", "option picker"],
-      "warnings": ["Includes scroll buttons for long lists", "Supports grouping with SelectGroup"],
-      "file_size_kb": 0
+      "triggers": [
+        "select",
+        "dropdown",
+        "option picker"
+      ],
+      "warnings": [
+        "Includes scroll buttons for long lists",
+        "Supports grouping with SelectGroup"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "separator",
@@ -1161,8 +1506,14 @@
       "required": false,
       "read_when": "When implementing visual dividers or separators between content",
       "use_cases": "separator,divider,line,hr,horizontal-rule,radix-separator",
-      "triggers": ["separator", "divider", "horizontal line"],
-      "file_size_kb": 0
+      "triggers": [
+        "separator",
+        "divider",
+        "horizontal line"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "sheet",
@@ -1173,9 +1524,19 @@
       "required": false,
       "read_when": "When implementing slide-over panels, drawers, or side sheets",
       "use_cases": "sheet,drawer,slide-over,side-panel,sliding-panel,radix-dialog",
-      "triggers": ["sheet", "drawer", "slide over", "side panel"],
-      "warnings": ["Built on Radix Dialog", "Supports 4 sides: top, right, bottom, left"],
-      "file_size_kb": 0
+      "triggers": [
+        "sheet",
+        "drawer",
+        "slide over",
+        "side panel"
+      ],
+      "warnings": [
+        "Built on Radix Dialog",
+        "Supports 4 sides: top, right, bottom, left"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "sidebar",
@@ -1186,10 +1547,20 @@
       "required": false,
       "read_when": "When implementing basic sidebar layouts with collapse/expand functionality",
       "use_cases": "sidebar,side-menu,navigation-sidebar,basic-sidebar,collapsible-sidebar",
-      "triggers": ["sidebar", "side menu"],
-      "warnings": ["Use app-sidebar from core for full featured sidebar layouts with theme support", "Highly complex with many sub-components"],
-      "next_steps": ["app-sidebar"],
-      "file_size_kb": 0
+      "triggers": [
+        "sidebar",
+        "side menu"
+      ],
+      "warnings": [
+        "Use app-sidebar from core for full featured sidebar layouts with theme support",
+        "Highly complex with many sub-components"
+      ],
+      "next_steps": [
+        "app-sidebar"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "skeleton",
@@ -1200,8 +1571,15 @@
       "required": false,
       "read_when": "When implementing loading states or placeholder content",
       "use_cases": "skeleton,loading-skeleton,placeholder,shimmer,loading-state",
-      "triggers": ["skeleton", "loading skeleton", "placeholder", "shimmer"],
-      "file_size_kb": 0
+      "triggers": [
+        "skeleton",
+        "loading skeleton",
+        "placeholder",
+        "shimmer"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "slider",
@@ -1212,9 +1590,17 @@
       "required": false,
       "read_when": "When implementing range sliders or numeric input sliders",
       "use_cases": "slider,range,range-slider,input-slider,radix-slider",
-      "triggers": ["slider", "range", "range input"],
-      "warnings": ["Supports multiple thumbs for range selection"],
-      "file_size_kb": 0
+      "triggers": [
+        "slider",
+        "range",
+        "range input"
+      ],
+      "warnings": [
+        "Supports multiple thumbs for range selection"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "switch",
@@ -1225,8 +1611,14 @@
       "required": false,
       "read_when": "When implementing toggle switches for on/off states",
       "use_cases": "switch,toggle,toggle-switch,on-off,radix-switch",
-      "triggers": ["switch", "toggle", "toggle switch"],
-      "file_size_kb": 0
+      "triggers": [
+        "switch",
+        "toggle",
+        "toggle switch"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "table",
@@ -1237,10 +1629,19 @@
       "required": false,
       "read_when": "When implementing basic tables without advanced features",
       "use_cases": "table,basic-table,grid,data-grid",
-      "triggers": ["table", "grid"],
-      "warnings": ["Use data-table from core for advanced tables with pagination/sorting/filtering"],
-      "next_steps": ["data-table"],
-      "file_size_kb": 0
+      "triggers": [
+        "table",
+        "grid"
+      ],
+      "warnings": [
+        "Use data-table from core for advanced tables with pagination/sorting/filtering"
+      ],
+      "next_steps": [
+        "data-table"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "tabs",
@@ -1251,8 +1652,14 @@
       "required": false,
       "read_when": "When implementing tabbed interfaces or tab panels",
       "use_cases": "tabs,tab-panel,tabbed-interface,navigation-tabs,radix-tabs",
-      "triggers": ["tabs", "tab panel", "tabbed"],
-      "file_size_kb": 0
+      "triggers": [
+        "tabs",
+        "tab panel",
+        "tabbed"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "textarea",
@@ -1263,9 +1670,18 @@
       "required": false,
       "read_when": "When implementing multiline text inputs or long text fields",
       "use_cases": "textarea,text-area,multiline-input,long-text",
-      "triggers": ["textarea", "text area", "multiline", "long text"],
-      "warnings": ["Supports custom height prop"],
-      "file_size_kb": 0
+      "triggers": [
+        "textarea",
+        "text area",
+        "multiline",
+        "long text"
+      ],
+      "warnings": [
+        "Supports custom height prop"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "toast",
@@ -1276,10 +1692,20 @@
       "required": false,
       "read_when": "When implementing toast notifications or temporary messages",
       "use_cases": "toast,notification,snackbar,alert,message,radix-toast",
-      "triggers": ["toast", "snackbar", "notification message"],
-      "warnings": ["Supports variants: default, destructive, success, warning, info"],
-      "next_steps": ["toaster"],
-      "file_size_kb": 0
+      "triggers": [
+        "toast",
+        "snackbar",
+        "notification message"
+      ],
+      "warnings": [
+        "Supports variants: default, destructive, success, warning, info"
+      ],
+      "next_steps": [
+        "toaster"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "toaster",
@@ -1290,9 +1716,17 @@
       "required": false,
       "read_when": "When setting up toast notification container in app layout",
       "use_cases": "toaster,toast-container,notification-container,use-toast",
-      "triggers": ["toaster", "toast container"],
-      "warnings": ["Uses useToast hook to manage toast queue", "Should be added once in app layout"],
-      "file_size_kb": 0
+      "triggers": [
+        "toaster",
+        "toast container"
+      ],
+      "warnings": [
+        "Uses useToast hook to manage toast queue",
+        "Should be added once in app layout"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     },
     {
       "id": "tooltip",
@@ -1303,9 +1737,18 @@
       "required": false,
       "read_when": "When implementing hover tooltips or hint text",
       "use_cases": "tooltip,hint,help-text,hover-info,radix-tooltip",
-      "triggers": ["tooltip", "hint", "help text", "hover"],
-      "warnings": ["Requires TooltipProvider at app root or parent level"],
-      "file_size_kb": 0
+      "triggers": [
+        "tooltip",
+        "hint",
+        "help text",
+        "hover"
+      ],
+      "warnings": [
+        "Requires TooltipProvider at app root or parent level"
+      ],
+      "file_size_kb": 0,
+      "status": "reference_only",
+      "note": "Documentation not yet available. See component code in codebase or check list_sections for usage."
     }
   ],
   "usage_notes": {
@@ -1319,7 +1762,7 @@
   },
   "workflow_summary": {
     "step_1": "list_sections - Discover all available documentation",
-    "step_2": "get_documentation(['project-setup', 'user-interaction', 'feature-planning']) - Get workflow docs",
+    "step_2": "get_documentation(['project-setup']) - Get complete workflow (merged from user-interaction + feature-planning)",
     "step_3": "Follow project-setup workflow - Gather requirements and plan",
     "step_4": "get_documentation(['implementation-checklist']) - BEFORE coding",
     "step_5": "get_documentation(['dev-workflow', 'graphql-crud', 'architecture-patterns']) - During implementation",

@@ -374,7 +374,7 @@ import { DataTable } from '@/components/core/data-table';
 
 ```typescript
 // ❌ WRONG
-src/modules/todos/components/  // Plural!
+src/modules/todos/component/  // Plural!
 src/modules/todos/Components/  // Capitalized!
 
 // ✅ CORRECT

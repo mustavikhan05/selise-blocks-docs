@@ -7,28 +7,28 @@
 #### Data Table
 - **Complete table**: `AdvanceDataTable` from `features/inventory/component/advance-data-table`
 - **Custom table**: `DataTableColumnHeader` from `components/blocks/data-table`
-- **Basic table**: `Table`, `TableHeader`, `TableBody` from `components/ui/table`
+- **Basic table**: `Table`, `TableHeader`, `TableBody` from `@/components/ui-kit/table`
 
 #### Confirmation Dialog
 - **Always use**: `ConfirmationModal` from `components/blocks/confirmation-modal`
 - **Never create custom confirmation dialogs**
 
 #### Form
-- **Form wrapper**: `Form` from `components/ui/form`
-- **Form fields**: `FormField`, `FormItem`, `FormLabel` from `components/ui/form`
-- **Inputs**: `Input`, `Textarea`, `Select`, `Checkbox` from `components/ui/*`
+- **Form wrapper**: `Form` from `@/components/ui-kit/form`
+- **Form fields**: `FormField`, `FormItem`, `FormLabel` from `@/components/ui-kit/form`
+- **Inputs**: `Input`, `Textarea`, `Select`, `Checkbox` from `@/components/ui-kit/*`
 
 #### Button
-- **All buttons**: `Button` from `components/ui/button`
+- **All buttons**: `Button` from `@/components/ui-kit/button`
 - **Variants**: `default`, `destructive`, `outline`, `secondary`, `ghost`, `link`
 - **Sizes**: `default`, `sm`, `lg`, `icon`
 
 #### User Avatar
 - **Avatar with fallbacks**: `CustomAvatar` from `components/blocks/custom-avatar`
-- **Basic avatar**: `Avatar` from `components/ui/avatar`
+- **Basic avatar**: `Avatar` from `@/components/ui-kit/avatar`
 
 #### Cards/Containers
-- **Content cards**: `Card`, `CardContent`, `CardHeader`, `CardTitle` from `components/ui/card`
+- **Content cards**: `Card`, `CardContent`, `CardHeader`, `CardTitle` from `@/components/ui-kit/card`
 
 #### Navigation/Sidebar
 - **Complete sidebar**: Check `AppSidebar` in `components/blocks/`
@@ -50,17 +50,17 @@ import { DataTablePagination } from 'components/blocks/data-table/data-table-pag
 import CustomAvatar from 'components/blocks/custom-avatar/custom-avatar'
 
 // UI Components (Foundation)
-import { Button } from 'components/ui/button'
-import { Input } from 'components/ui/input'
-import { Card, CardContent, CardHeader, CardTitle } from 'components/ui/card'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from 'components/ui/table'
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from 'components/ui/form'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from 'components/ui/select'
-import { Textarea } from 'components/ui/textarea'
-import { Checkbox } from 'components/ui/checkbox'
-import { Badge } from 'components/ui/badge'
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from 'components/ui/dialog'
-import { Skeleton } from 'components/ui/skeleton'
+import { Button } from '@/components/ui-kit/button'
+import { Input } from '@/components/ui-kit/input'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui-kit/card'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui-kit/table'
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui-kit/form'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui-kit/select'
+import { Textarea } from '@/components/ui-kit/textarea'
+import { Checkbox } from '@/components/ui-kit/checkbox'
+import { Badge } from '@/components/ui-kit/badge'
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '@/components/ui-kit/dialog'
+import { Skeleton } from '@/components/ui-kit/skeleton'
 ```
 
 ## Common Component Combinations
@@ -70,17 +70,17 @@ import { Skeleton } from 'components/ui/skeleton'
 import { AdvanceDataTable } from 'features/inventory/component/advance-data-table/advance-data-table'
 import { DataTableColumnHeader } from 'components/blocks/data-table/data-table-column-header'
 import ConfirmationModal from 'components/blocks/confirmation-modal/confirmation-modal'
-import { Button } from 'components/ui/button'
+import { Button } from '@/components/ui-kit/button'
 
 // Usage: Complete table with delete confirmation
 ```
 
 ### Form with Validation
 ```typescript
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from 'components/ui/form'
-import { Input } from 'components/ui/input'
-import { Button } from 'components/ui/button'
-import { Card, CardContent, CardHeader, CardTitle } from 'components/ui/card'
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui-kit/form'
+import { Input } from '@/components/ui-kit/input'
+import { Button } from '@/components/ui-kit/button'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui-kit/card'
 
 // Usage: Complete form with React Hook Form + Zod
 ```
@@ -89,17 +89,17 @@ import { Card, CardContent, CardHeader, CardTitle } from 'components/ui/card'
 ```typescript
 import ConfirmationModal from 'components/blocks/confirmation-modal/confirmation-modal'
 // OR for custom modals:
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from 'components/ui/dialog'
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui-kit/dialog'
 
 // Usage: Use ConfirmationModal for confirmations, Dialog for custom content
 ```
 
 ### User Interface Elements
 ```typescript
-import { Button } from 'components/ui/button'
-import { Badge } from 'components/ui/badge'
+import { Button } from '@/components/ui-kit/button'
+import { Badge } from '@/components/ui-kit/badge'
 import CustomAvatar from 'components/blocks/custom-avatar/custom-avatar'
-import { Card, CardContent } from 'components/ui/card'
+import { Card, CardContent } from '@/components/ui-kit/card'
 
 // Usage: Standard UI patterns throughout the app
 ```

@@ -40,9 +40,9 @@ The MCP-created project automatically includes the Selise Blocks component libra
 ### 2. Project Detection
 A project uses Selise if you find:
 - Imports from `features/*/component/`
-- Imports from `components/blocks/` or `components/ui/`
+- Imports from `components/blocks/` or `@/components/ui-kit/`
 - `AdvanceDataTable` or `ConfirmationModal` in the codebase
-- Selise-style folder structure: `src/features/[feature-name]/components/`
+- Selise-style folder structure: `src/modules/[feature-name]/component/`
 
 ## Core Development Principles
 
@@ -51,14 +51,14 @@ A project uses Selise if you find:
 
 1. **Feature Level First** - Check `features/*/components/` for existing solutions
 2. **Block Level Second** - Use `components/blocks/` for business patterns  
-3. **UI Level Last** - Use `components/ui/` as the foundation
+3. **UI Level Last** - Use `@/components/ui-kit/` as the foundation
 
 ### Import Decision Matrix
 
 #### ✅ Always Import (Never Recreate)
 ```typescript
 // All UI components
-import { Button, Input, Card, Table, Dialog, Badge } from 'components/ui/*'
+import { Button, Input, Card, Table, Dialog, Badge } from '@/components/ui-kit/*'
 
 // Proven block patterns
 import ConfirmationModal from 'components/blocks/confirmation-modal/confirmation-modal'
@@ -144,9 +144,9 @@ Use React Hook Form with Zod validation:
 ```typescript
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from 'components/ui/form'
-import { Input } from 'components/ui/input'
-import { Button } from 'components/ui/button'
+import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from '@/components/ui-kit/form'
+import { Input } from '@/components/ui-kit/input'
+import { Button } from '@/components/ui-kit/button'
 
 const schema = z.object({
   name: z.string().min(2),
@@ -378,7 +378,7 @@ import { AdvanceDataTable } from 'features/inventory/component/advance-data-tabl
 import ConfirmationModal from 'components/blocks/confirmation-modal/confirmation-modal'
 
 // 4. UI level imports
-import { Button, Input, Card } from 'components/ui/*'
+import { Button, Input, Card } from '@/components/ui-kit/*'
 
 // 5. Local imports
 import { useYourFeature } from '../hooks/use-your-feature'

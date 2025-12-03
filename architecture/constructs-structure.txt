@@ -31,7 +31,7 @@ selise-constructs/src/
 
 ## 1. Components (`src/components/`)
 
-### Layer 3: UI Components (`src/components/ui/`)
+### Layer 3: UI Components (`src/@/components/ui-kit/`)
 
 **34 foundation components** - Most generic, shadcn-based:
 
@@ -57,7 +57,7 @@ toaster.tsx            tooltip.tsx
 
 **Usage**: Always import these for basic UI primitives
 ```typescript
-import { Button, Input, Card, Table } from 'components/ui/*'
+import { Button, Input, Card, Table } from '@/components/ui-kit/*'
 ```
 
 ---
@@ -134,7 +134,7 @@ uCheckbox/                       # Custom checkbox
 
 ---
 
-## 2. Features (`src/features/`)
+## 2. Features (`src/modules/`)
 
 **Complete, production-ready feature modules** (16 features):
 
@@ -181,7 +181,7 @@ features/inventory/
 **Key Pattern from Inventory Service**:
 
 ```typescript
-// src/features/inventory/services/inventory.service.ts
+// src/modules/inventory/services/inventory.service.ts
 import { graphqlClient } from 'lib/graphql-client';
 
 export const getInventory = async (context: {
@@ -487,7 +487,7 @@ Data models and interfaces
 
 ### ✅ Always Use (Foundation)
 
-1. **All UI Components** (`components/ui/`) - shadcn-based primitives
+1. **All UI Components** (`@/components/ui-kit/`) - shadcn-based primitives
 2. **GraphQL Client** (`lib/graphql-client.ts`) - For all data operations
 3. **Global Query/Mutation Hooks** (`state/query-client/hooks.tsx`) - Error handling
 4. **Toast Hook** (`hooks/use-toast.ts`) - Notifications
@@ -555,7 +555,7 @@ export const useYourData = (params) => {
 ```typescript
 import { AdvanceDataTable } from 'features/inventory/component/advance-data-table'
 import { DataTableColumnHeader } from 'components/blocks/data-table'
-import { Button } from 'components/ui/button'
+import { Button } from '@/components/ui-kit/button'
 
 // Create columns
 const columns = [

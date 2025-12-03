@@ -4,7 +4,7 @@
 
 Selise follows a strict 3-layer hierarchy for components. **Always start at the top and work your way down.**
 
-### Layer 1: Feature Components (src/features/*/components/)
+### Layer 1: Feature Components (src/modules/*/component/)
 **Most Specific → Least Work**
 
 These are complete, business-ready components that solve entire use cases.
@@ -142,7 +142,7 @@ import { DataTablePagination } from 'components/blocks/data-table/data-table-pag
 />
 ```
 
-### Layer 3: UI Components (src/components/ui/)
+### Layer 3: UI Components (src/@/components/ui-kit/)
 **Most Generic → Most Work**
 
 These are the foundational design system components.
@@ -151,8 +151,8 @@ These are the foundational design system components.
 
 **Button** - All button variations
 ```typescript
-// Path: components/ui/button.tsx
-import { Button } from 'components/ui/button'
+// Path: @/components/ui-kit/button.tsx
+import { Button } from '@/components/ui-kit/button'
 
 // Variants: default, destructive, outline, secondary, ghost, link
 // Sizes: default, sm, lg, icon
@@ -166,8 +166,8 @@ import { Button } from 'components/ui/button'
 
 **Input** - Text inputs
 ```typescript
-// Path: components/ui/input.tsx
-import { Input } from 'components/ui/input'
+// Path: @/components/ui-kit/input.tsx
+import { Input } from '@/components/ui-kit/input'
 
 // Usage:
 <Input 
@@ -180,8 +180,8 @@ import { Input } from 'components/ui/input'
 
 **Card** - Container component
 ```typescript
-// Path: components/ui/card.tsx
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from 'components/ui/card'
+// Path: @/components/ui-kit/card.tsx
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui-kit/card'
 
 // Usage:
 <Card>
@@ -197,8 +197,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from 'compo
 
 **Table** - Basic table elements
 ```typescript
-// Path: components/ui/table.tsx
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from 'components/ui/table'
+// Path: @/components/ui-kit/table.tsx
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui-kit/table'
 
 // Usage:
 <Table>
@@ -219,8 +219,8 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from 'c
 
 **Form Components** - Form building blocks
 ```typescript
-// Path: components/ui/form.tsx
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from 'components/ui/form'
+// Path: @/components/ui-kit/form.tsx
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui-kit/form'
 
 // Usage with React Hook Form:
 <FormField
@@ -240,8 +240,8 @@ import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, For
 
 **Select** - Dropdown selections
 ```typescript
-// Path: components/ui/select.tsx
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from 'components/ui/select'
+// Path: @/components/ui-kit/select.tsx
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui-kit/select'
 
 // Usage:
 <Select onValueChange={onValueChange}>
@@ -282,7 +282,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from 'c
 ### ✅ Always Import These
 ```typescript
 // All UI components - never recreate these
-import { Button, Input, Card, Table, Dialog, Badge, Avatar } from 'components/ui/*'
+import { Button, Input, Card, Table, Dialog, Badge, Avatar } from '@/components/ui-kit/*'
 
 // Proven block patterns - use when applicable
 import ConfirmationModal from 'components/blocks/confirmation-modal/confirmation-modal'
@@ -329,7 +329,7 @@ import { DataTableColumnHeader } from 'components/blocks/data-table/data-table-c
 import ConfirmationModal from 'components/blocks/confirmation-modal/confirmation-modal'
 
 // 3. Use UI Foundation
-import { Button, Badge } from 'components/ui/button'
+import { Button, Badge } from '@/components/ui-kit/button'
 
 // 4. Create Custom Business Logic
 export const createUsersTableColumns = ({ t, onEdit, onDelete }) => [

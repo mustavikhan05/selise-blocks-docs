@@ -108,7 +108,7 @@ The IAM-to-Business-Data mapping pattern creates a bridge between authentication
 
 ### 1. Business Record Provisioning Service
 
-**Location**: `src/features/[domain]/services/[domain]-provisioning.service.ts`
+**Location**: `src/modules/[domain]/services/[domain]-provisioning.service.ts`
 
 This service bridges IAM users to your business domain:
 
@@ -271,7 +271,7 @@ export const ensureBusinessRecord = async (): Promise<any> => {
 
 ### 2. Business Record Hook
 
-**Location**: `src/features/[domain]/hooks/use-[domain]-provisioning.ts`
+**Location**: `src/modules/[domain]/hooks/use-[domain]-provisioning.ts`
 
 React hooks to manage the IAM-to-business bridging in components:
 
@@ -371,7 +371,7 @@ export const useCurrentBusinessRecord = () => {
 
 ### 3. Data Services with User Filtering
 
-**Location**: `src/features/[domain]/services/[domain].service.ts`
+**Location**: `src/modules/[domain]/services/[domain].service.ts`
 
 Services that filter data based on the user's business record:
 

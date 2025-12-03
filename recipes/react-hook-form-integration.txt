@@ -22,16 +22,16 @@ npm install react-hook-form @hookform/resolvers zod
 ### From Selise Repository
 ```typescript
 // UI Components (Always Import)
-import { Button } from 'components/ui/button'
-import { Input } from 'components/ui/input'
-import { Label } from 'components/ui/label'
-import { Card, CardContent, CardHeader, CardTitle } from 'components/ui/card'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from 'components/ui/select'
-import { Textarea } from 'components/ui/textarea'
-import { Checkbox } from 'components/ui/checkbox'
+import { Button } from '@/components/ui-kit/button'
+import { Input } from '@/components/ui-kit/input'
+import { Label } from '@/components/ui-kit/label'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui-kit/card'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui-kit/select'
+import { Textarea } from '@/components/ui-kit/textarea'
+import { Checkbox } from '@/components/ui-kit/checkbox'
 
 // Form Components (If Available)
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from 'components/ui/form'
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui-kit/form'
 ```
 
 ## Recipe Steps
@@ -67,14 +67,14 @@ export type YourFormData = z.infer<typeof yourFormSchema>
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Button } from 'components/ui/button'
-import { Input } from 'components/ui/input'
-import { Label } from 'components/ui/label'
-import { Card, CardContent, CardHeader, CardTitle } from 'components/ui/card'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from 'components/ui/select'
-import { Textarea } from 'components/ui/textarea'
-import { Checkbox } from 'components/ui/checkbox'
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from 'components/ui/form'
+import { Button } from '@/components/ui-kit/button'
+import { Input } from '@/components/ui-kit/input'
+import { Label } from '@/components/ui-kit/label'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui-kit/card'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui-kit/select'
+import { Textarea } from '@/components/ui-kit/textarea'
+import { Checkbox } from '@/components/ui-kit/checkbox'
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui-kit/form'
 import { yourFormSchema, YourFormData } from '../schemas/your-form.schema'
 
 interface YourFormProps {
@@ -259,9 +259,9 @@ export function YourForm({ initialData, onSubmit, isLoading = false }: YourFormP
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Button } from 'components/ui/button'
-import { Card, CardContent, CardHeader, CardTitle } from 'components/ui/card'
-import { Progress } from 'components/ui/progress'
+import { Button } from '@/components/ui-kit/button'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui-kit/card'
+import { Progress } from '@/components/ui-kit/progress'
 
 const steps = ['Basic Info', 'Details', 'Confirmation'];
 
@@ -370,9 +370,9 @@ export function MultiStepForm() {
 // components/form-with-file-upload.tsx
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { Button } from 'components/ui/button'
-import { Input } from 'components/ui/input'
-import { Label } from 'components/ui/label'
+import { Button } from '@/components/ui-kit/button'
+import { Input } from '@/components/ui-kit/input'
+import { Label } from '@/components/ui-kit/label'
 
 export function FormWithFileUpload() {
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);

@@ -39,7 +39,7 @@ interface ConfirmationModalProps {
 ```typescript
 import React, { useState } from 'react'
 import ConfirmationModal from 'components/blocks/confirmation-modal/confirmation-modal'
-import { Button } from 'components/ui/button'
+import { Button } from '@/components/ui-kit/button'
 
 export function BasicDeleteExample() {
   const [deleteModal, setDeleteModal] = useState({
