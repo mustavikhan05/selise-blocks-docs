@@ -15,9 +15,12 @@ This MCP provides documentation + 33 Cloud API tools for Selise Blocks developme
 ## 🔁 IMPLEMENTATION LOOP (For Each Task)
 
 ### STEP 1: PLAN (BLOCKING)
-- Call `list_sections()` → analyze use_cases/triggers
-- Call `get_documentation([relevant topics])`
+- **MANDATORY:** Call `list_sections()` FIRST (in same turn as get_documentation)
+- Analyze use_cases/triggers from results
+- Call `get_documentation([relevant topics])` (same turn!)
 - Write task breakdown to TASKS.md with docs referenced
+
+**CRITICAL:** list_sections and get_documentation MUST be in the SAME conversation turn
 
 ✋ CHECKPOINT: Task planned in TASKS.md? → NO = STOP, GO BACK
 
@@ -71,7 +74,7 @@ This MCP provides documentation + 33 Cloud API tools for Selise Blocks developme
 
 ## 🚫 NEVER DO
 
-- Skip list_sections before starting task
+- Call get_documentation without calling list_sections FIRST (same turn!)
 - Skip updating TASKS.md and SCRATCHPAD.md
 - Use uppercase "Get" in queries
 - Use ItemId in GraphQL filters
@@ -120,7 +123,7 @@ This MCP provides documentation + 33 Cloud API tools for Selise Blocks developme
 - `get_documentation(topics)` - Fetch specific docs
 - 33 Selise Cloud API tools (auth, schemas, IAM, MFA, SSO, CAPTCHA, etc.)
 
-**Remember:** ALWAYS call list_sections before each task to find relevant docs/components
+**CRITICAL RULE:** ALWAYS call list_sections FIRST, then get_documentation in the SAME conversation turn
 
 ---
 
