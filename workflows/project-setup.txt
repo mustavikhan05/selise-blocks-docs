@@ -128,18 +128,19 @@ login(username="email", password="password")
 ```python
 # Create project
 result = create_project(
-    project_name="[from user]",
-    repo_name="username/repo",
-    repo_link="https://github.com/username/repo",
-    repo_id="Any",
-    is_production=False
+    project_name="[from user]",           # Project name from user
+    repo_name="username/repo",            # GitHub repo format: username/repo-name
+    repo_link="https://github.com/username/repo",  # Full GitHub URL
+    repo_id="Any",                        # Repository ID (use "Any" for new repos)
+    is_production=False                   # Development environment (use True for production)
 )
 
 # MANDATORY: Set application domain
+# This configures the project for local development
 set_application_domain(
-    domain=result.domain,
-    tenant_id=result.tenant_id,
-    project_name="[from user]"
+    domain=result.domain,                 # Domain returned from create_project
+    tenant_id=result.tenant_id,           # Tenant ID returned from create_project
+    project_name="[from user]"            # Same project name as above
 )
 ```
 

@@ -11,12 +11,13 @@ These are complete, business-ready components that solve entire use cases.
 
 #### Key Feature Components
 
-**AdvanceDataTable** - Complete table system
+**AdvanceDataTable** - Complete table system (REFERENCE-ONLY)
 ```typescript
-// Path: features/inventory/component/advance-data-table/advance-data-table.tsx
-import { AdvanceDataTable } from 'features/inventory/component/advance-data-table/advance-data-table'
+// Path: modules/inventory/component/advance-data-table/advance-data-table.tsx
+// NOTE: inventory module is REFERENCE-ONLY - study the pattern, build your own
+// DO NOT import from inventory - use DataTable from @/components/core/data-table instead
 
-// What you get:
+// What AdvanceDataTable demonstrates:
 // - Full TanStack Table integration
 // - Column visibility management
 // - Sorting, filtering, pagination
@@ -24,33 +25,21 @@ import { AdvanceDataTable } from 'features/inventory/component/advance-data-tabl
 // - Loading and error states
 // - Custom toolbars support
 
-// Usage:
-<AdvanceDataTable
-  data={yourData}
-  columns={yourColumns}
-  onRowClick={handleRowClick}
-  isLoading={isLoading}
-  columnsToolbar={renderColumnsToolbar}
-  filterToolbar={renderFilterToolbar}
-  pagination={paginationState}
-  manualPagination={true}
-/>
+// For your module: Use DataTable from @/components/core/data-table
+// Study inventory's pattern, implement in your own module
 ```
 
-**AdvancedTableColumnsToolbar** - Column management
+**AdvancedTableColumnsToolbar** - Column management (REFERENCE-ONLY)
 ```typescript
-// Path: features/inventory/component/advance-table-columns-toolbar/
-import { AdvancedTableColumnsToolbar } from 'features/inventory/component/advance-table-columns-toolbar/advance-table-columns-toolbar'
+// Path: modules/inventory/component/advance-table-columns-toolbar/
+// NOTE: inventory module is REFERENCE-ONLY - study the pattern, build your own
 
-// What you get:
+// What AdvancedTableColumnsToolbar demonstrates:
 // - Column visibility toggles
 // - Column pinning controls
 // - Reset functionality
 
-// Usage:
-const renderColumnsToolbar = (table) => (
-  <AdvancedTableColumnsToolbar table={table} />
-);
+// For your module: Build your own toolbar based on this pattern
 ```
 
 ### Layer 2: Block Components (src/components/blocks/)
@@ -62,8 +51,8 @@ These are business patterns and reusable compound components.
 
 **ConfirmationModal** - All confirmation dialogs
 ```typescript
-// Path: components/blocks/confirmation-modal/confirmation-modal.tsx
-import ConfirmationModal from 'components/blocks/confirmation-modal/confirmation-modal'
+// Path: @/components/blocks/confirmation-modal/confirmation-modal.tsx
+import ConfirmationModal from '@/components/blocks/confirmation-modal/confirmation-modal'
 
 // What you get:
 // - Accessible dialog with ARIA attributes
@@ -86,8 +75,8 @@ import ConfirmationModal from 'components/blocks/confirmation-modal/confirmation
 
 **DataTableColumnHeader** - Sortable column headers
 ```typescript
-// Path: components/blocks/data-table/data-table-column-header.tsx
-import { DataTableColumnHeader } from 'components/blocks/data-table/data-table-column-header'
+// Path: @/components/blocks/data-table/data-table-column-header.tsx
+import { DataTableColumnHeader } from '@/components/blocks/data-table/data-table-column-header'
 
 // What you get:
 // - Sortable column headers
@@ -106,8 +95,8 @@ import { DataTableColumnHeader } from 'components/blocks/data-table/data-table-c
 
 **CustomAvatar** - User avatars
 ```typescript
-// Path: components/blocks/custom-avatar/custom-avatar.tsx
-import CustomAvatar from 'components/blocks/custom-avatar/custom-avatar'
+// Path: @/components/blocks/custom-avatar/custom-avatar.tsx
+import CustomAvatar from '@/components/blocks/custom-avatar/custom-avatar'
 
 // What you get:
 // - Image avatars with fallbacks
@@ -125,8 +114,8 @@ import CustomAvatar from 'components/blocks/custom-avatar/custom-avatar'
 
 **DataTablePagination** - Table pagination
 ```typescript
-// Path: components/blocks/data-table/data-table-pagination.tsx
-import { DataTablePagination } from 'components/blocks/data-table/data-table-pagination'
+// Path: @/components/blocks/data-table/data-table-pagination.tsx
+import { DataTablePagination } from '@/components/blocks/data-table/data-table-pagination'
 
 // What you get:
 // - Page navigation controls
@@ -285,27 +274,32 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Button, Input, Card, Table, Dialog, Badge, Avatar } from '@/components/ui-kit/*'
 
 // Proven block patterns - use when applicable
-import ConfirmationModal from 'components/blocks/confirmation-modal/confirmation-modal'
-import { DataTableColumnHeader } from 'components/blocks/data-table/data-table-column-header'
-import CustomAvatar from 'components/blocks/custom-avatar/custom-avatar'
+import ConfirmationModal from '@/components/blocks/confirmation-modal/confirmation-modal'
+import { DataTableColumnHeader } from '@/components/blocks/data-table/data-table-column-header'
+import CustomAvatar from '@/components/blocks/custom-avatar/custom-avatar'
 
-// Feature components - use if they fit your use case exactly
-import { AdvanceDataTable } from 'features/inventory/component/advance-data-table/advance-data-table'
+// Core components - use for data tables
+import { DataTable } from '@/components/core/data-table'
+
+// NOTE: Do NOT import from modules/inventory/* - it's REFERENCE-ONLY
+// Study the patterns, build your own implementation in your module
 ```
 
 ### ❌ Never Import These (Create Custom)
 ```typescript
-// Don't import business logic across features
-// ❌ import { createAdvanceTableColumns } from 'features/inventory/...'
+// Don't import business logic across modules
+// ❌ import { createAdvanceTableColumns } from 'modules/inventory/...'
 // ✅ Create your own: createYourTableColumns
 
-// Don't import feature-specific forms
-// ❌ import { InventoryForm } from 'features/inventory/...'
+// Don't import module-specific forms
+// ❌ import { InventoryForm } from 'modules/inventory/...'
 // ✅ Create your own: YourFeatureForm
 
-// Don't import feature services/hooks
-// ❌ import { useInventory } from 'features/inventory/...'
+// Don't import module services/hooks
+// ❌ import { useInventory } from 'modules/inventory/...'
 // ✅ Create your own: useYourFeature
+
+// CRITICAL: inventory module is REFERENCE-ONLY - study patterns, don't import
 ```
 
 ## Component Checklist
@@ -321,17 +315,17 @@ Before building any component, ask:
 
 ### Building a User Management Table
 ```typescript
-// 1. Try Feature Level First
-import { AdvanceDataTable } from 'features/inventory/component/advance-data-table/advance-data-table'
+// 1. Use Core Data Table
+import { DataTable } from '@/components/core/data-table'
 
 // 2. Use Block Patterns
-import { DataTableColumnHeader } from 'components/blocks/data-table/data-table-column-header'
-import ConfirmationModal from 'components/blocks/confirmation-modal/confirmation-modal'
+import { DataTableColumnHeader } from '@/components/blocks/data-table/data-table-column-header'
+import ConfirmationModal from '@/components/blocks/confirmation-modal/confirmation-modal'
 
 // 3. Use UI Foundation
 import { Button, Badge } from '@/components/ui-kit/button'
 
-// 4. Create Custom Business Logic
+// 4. Create Custom Business Logic (in your module)
 export const createUsersTableColumns = ({ t, onEdit, onDelete }) => [
   {
     accessorKey: 'name',
@@ -348,11 +342,14 @@ export const createUsersTableColumns = ({ t, onEdit, onDelete }) => [
 ];
 
 // 5. Use the Complete Solution
-<AdvanceDataTable
+<DataTable
   data={users}
   columns={createUsersTableColumns({ t, onEdit, onDelete })}
-  // All other features come built-in
+  isLoading={isLoading}
+  onPaginationChange={handlePaginationChange}
 />
+
+// NOTE: Study modules/inventory/* for patterns, but DO NOT import from it
 ```
 
 This hierarchy ensures you get maximum functionality with minimum effort while maintaining consistency across the entire Selise platform.

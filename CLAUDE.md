@@ -84,7 +84,8 @@ This MCP provides documentation + 33 Cloud API tools for Selise Blocks developme
 
 **Workflows** (when to read):
 - project-setup → Initial setup (Phases 0-5)
-- implementation-checklist → Reference during implementation
+- dev-workflow → Continuous development cycle (after setup)
+- implementation-checklist → Pre-flight checklist before coding
 
 **Recipes** (fetch as needed):
 - graphql-crud → ALWAYS (for data operations)

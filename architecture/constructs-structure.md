@@ -11,7 +11,7 @@
 ```
 selise-constructs/src/
 ├── components/          # UI Components (3-layer hierarchy)
-├── features/            # Complete feature modules
+├── modules/             # Complete feature modules (formerly "features/")
 ├── hooks/               # Reusable React hooks
 ├── lib/                 # Core utilities and clients
 ├── state/               # State management (Zustand + React Query)
@@ -162,9 +162,9 @@ task-manager/           # Task/project management
 Each feature follows the same pattern:
 
 ```
-features/inventory/
-├── component/                    # Feature-specific components
-│   ├── advance-data-table/      # Complete table system
+modules/inventory/
+├── component/                    # Feature-specific components (SINGULAR!)
+│   ├── advance-data-table/      # Complete table system (REFERENCE-ONLY)
 │   └── advance-table-columns-toolbar/
 ├── graphql/                     # GraphQL operations
 │   ├── queries.ts
@@ -521,8 +521,8 @@ Data models and interfaces
 
 ### 1. Feature Structure
 ```
-features/your-feature/
-├── component/           # Feature components (Layer 1)
+modules/your-feature/
+├── component/           # Feature components (Layer 1) - SINGULAR!
 ├── graphql/            # queries.ts + mutations.ts
 ├── hooks/              # use-your-feature.ts
 ├── services/           # your-feature.service.ts
@@ -553,8 +553,10 @@ export const useYourData = (params) => {
 
 ### 4. Component Pattern
 ```typescript
-import { AdvanceDataTable } from 'features/inventory/component/advance-data-table'
-import { DataTableColumnHeader } from 'components/blocks/data-table'
+// NOTE: inventory is REFERENCE-ONLY - study pattern, build your own
+// Use DataTable from @/components/core/data-table instead
+import { DataTable } from '@/components/core/data-table'
+import { DataTableColumnHeader } from '@/components/blocks/data-table'
 import { Button } from '@/components/ui-kit/button'
 
 // Create columns
@@ -566,7 +568,7 @@ const columns = [
 ];
 
 // Use table
-<AdvanceDataTable data={data} columns={columns} />
+<DataTable data={data} columns={columns} isLoading={isLoading} />
 ```
 
 ---

@@ -13,7 +13,7 @@
 **Directory Structure - Follow inventory pattern:**
 ```
 src/modules/[feature-name]/
-├── components/         # Feature-specific components
+├── component/         # Feature-specific components (SINGULAR!)
 ├── graphql/           # Queries and mutations (if using GraphQL)
 ├── hooks/             # Feature-specific hooks
 ├── services/          # API calls and business logic

@@ -39,8 +39,8 @@ The MCP-created project automatically includes the Selise Blocks component libra
 
 ### 2. Project Detection
 A project uses Selise if you find:
-- Imports from `features/*/component/`
-- Imports from `components/blocks/` or `@/components/ui-kit/`
+- Imports from `modules/*/component/`
+- Imports from `@/components/blocks/` or `@/components/ui-kit/`
 - `AdvanceDataTable` or `ConfirmationModal` in the codebase
 - Selise-style folder structure: `src/modules/[feature-name]/component/`
 
@@ -49,8 +49,8 @@ A project uses Selise if you find:
 ### The 3-Layer Hierarchy Rule
 **Always follow this order when building components:**
 
-1. **Feature Level First** - Check `features/*/components/` for existing solutions
-2. **Block Level Second** - Use `components/blocks/` for business patterns  
+1. **Feature Level First** - Check `modules/*/component/` for existing solutions
+2. **Block Level Second** - Use `@/components/blocks/` for business patterns
 3. **UI Level Last** - Use `@/components/ui-kit/` as the foundation
 
 ### Import Decision Matrix
@@ -61,27 +61,29 @@ A project uses Selise if you find:
 import { Button, Input, Card, Table, Dialog, Badge } from '@/components/ui-kit/*'
 
 // Proven block patterns
-import ConfirmationModal from 'components/blocks/confirmation-modal/confirmation-modal'
-import { DataTableColumnHeader } from 'components/blocks/data-table/data-table-column-header'
-import CustomAvatar from 'components/blocks/custom-avatar/custom-avatar'
+import ConfirmationModal from '@/components/blocks/confirmation-modal/confirmation-modal'
+import { DataTableColumnHeader } from '@/components/blocks/data-table/data-table-column-header'
+import CustomAvatar from '@/components/blocks/custom-avatar/custom-avatar'
 
 // Complete feature solutions (when they fit exactly)
-import { AdvanceDataTable } from 'features/inventory/component/advance-data-table/advance-data-table'
+// Note: inventory is REFERENCE-ONLY - study the pattern, build your own
 ```
 
 #### ❌ Never Import (Create Custom)
 ```typescript
 // Business logic - always feature-specific
-// ❌ import { createAdvanceTableColumns } from 'features/inventory/...'
+// ❌ import { createAdvanceTableColumns } from 'modules/inventory/...'
 // ✅ Create: createYourTableColumns
 
 // Forms - always feature-specific
-// ❌ import { InventoryForm } from 'features/inventory/...'
+// ❌ import { InventoryForm } from 'modules/inventory/...'
 // ✅ Create: YourFeatureForm
 
 // Services/Hooks - always feature-specific
-// ❌ import { useInventory } from 'features/inventory/...'
+// ❌ import { useInventory } from 'modules/inventory/...'
 // ✅ Create: useYourFeature
+
+// CRITICAL: inventory module is REFERENCE-ONLY - study patterns, don't import
 ```
 
 ## Standard Development Patterns
@@ -90,11 +92,11 @@ import { AdvanceDataTable } from 'features/inventory/component/advance-data-tabl
 When building data tables, follow this exact pattern:
 
 ```typescript
-// 1. Try Feature Level First
-import { AdvanceDataTable } from 'features/inventory/component/advance-data-table/advance-data-table'
+// 1. Use Core Data Table Component
+import { DataTable } from '@/components/core/data-table'
 
 // 2. Use Block Patterns
-import { DataTableColumnHeader } from 'components/blocks/data-table/data-table-column-header'
+import { DataTableColumnHeader } from '@/components/blocks/data-table/data-table-column-header'
 
 // 3. Create Custom Business Logic
 export const createYourTableColumns = ({ t, onEdit, onDelete }) => [
@@ -113,7 +115,7 @@ export const createYourTableColumns = ({ t, onEdit, onDelete }) => [
 ];
 
 // 4. Implement the Complete Solution
-<AdvanceDataTable
+<DataTable
   data={yourData}
   columns={createYourTableColumns({ t, onEdit, onDelete })}
   isLoading={isLoading}
@@ -125,7 +127,7 @@ export const createYourTableColumns = ({ t, onEdit, onDelete }) => [
 **Always use ConfirmationModal - never create custom confirmation dialogs:**
 
 ```typescript
-import ConfirmationModal from 'components/blocks/confirmation-modal/confirmation-modal'
+import ConfirmationModal from '@/components/blocks/confirmation-modal/confirmation-modal'
 
 const [deleteModal, setDeleteModal] = useState({ open: false, item: null });
 
@@ -317,7 +319,7 @@ if (error) {
 6. Implement React Query hooks for data operations
 
 ### "Add authentication/authorization"
-1. Check existing auth patterns in `features/auth/`
+1. Check existing auth patterns in `modules/auth/`
 2. Use `PermissionGuard` if available in blocks
 3. Follow existing authentication flows
 4. Use standard form patterns for login/signup
@@ -329,7 +331,7 @@ if (error) {
 4. Follow grid layout patterns
 
 ### "Build a file management interface"
-1. Check `features/file-manager/` for existing patterns
+1. Check `modules/file-manager/` for existing patterns
 2. Use `CustomAvatar` for profile pictures
 3. Handle file uploads with proper validation
 4. Use standard progress indicators
@@ -371,18 +373,20 @@ interface TableProps<T> {
 import React, { useState, useCallback } from 'react'
 import { useForm } from 'react-hook-form'
 
-// 2. Feature level imports
-import { AdvanceDataTable } from 'features/inventory/component/advance-data-table/advance-data-table'
+// 2. Block level imports
+import ConfirmationModal from '@/components/blocks/confirmation-modal/confirmation-modal'
 
-// 3. Block level imports
-import ConfirmationModal from 'components/blocks/confirmation-modal/confirmation-modal'
-
-// 4. UI level imports
+// 3. UI level imports
 import { Button, Input, Card } from '@/components/ui-kit/*'
 
-// 5. Local imports
+// 4. Core components
+import { DataTable } from '@/components/core/data-table'
+
+// 5. Local imports (within your module)
 import { useYourFeature } from '../hooks/use-your-feature'
 import { YourDataItem } from '../types/your-feature.types'
+
+// NEVER import from other modules (modules/inventory/* is REFERENCE-ONLY)
 ```
 
 ## Quality Guidelines

@@ -181,7 +181,7 @@
       "file_size_kb": 14
     },
     {
-      "id": "confirmation-modal",
+      "id": "confirmation-modal-patterns",
       "title": "Confirmation Modal Patterns Recipe",
       "path": "recipes/confirmation-modal-patterns.txt",
       "type": "recipe",
@@ -199,7 +199,7 @@
       "warnings": [
         "ALWAYS use ConfirmationModal component",
         "Never create custom confirmation dialogs",
-        "Never use browser confirm() or AlertDialog"
+        "Never use browser confirm() or alert-dialog for confirmations"
       ],
       "file_size_kb": 12
     },
@@ -530,7 +530,7 @@
       "title": "Custom Avatar Component",
       "path": "components/core/custom-avatar.md",
       "type": "component",
-      "priority": "low",
+      "priority": "high",
       "required": false,
       "read_when": "When displaying user avatars with fallback initials and optional grid background",
       "use_cases": "avatar,user-avatar,profile-picture,user-display,initials,fallback-avatar,circular-avatar",
@@ -542,6 +542,7 @@
         "initials"
       ],
       "warnings": [
+        "RECOMMENDED: Use CustomAvatar instead of basic Avatar component",
         "Falls back to first character of name if no image provided",
         "Grid background can be disabled with showGrid prop"
       ],
@@ -1051,19 +1052,21 @@
       "title": "Alert Dialog Component",
       "path": "components/ui-kit/alert-dialog.md",
       "type": "component",
-      "priority": "high",
+      "priority": "medium",
       "required": false,
-      "read_when": "When implementing confirmation dialogs or critical alerts that require user action",
-      "use_cases": "alert,dialog,alert-dialog,modal,warning-dialog,confirmation,destructive-action",
+      "read_when": "When implementing alerts or warnings that need user acknowledgment (not confirmations)",
+      "use_cases": "alert,dialog,alert-dialog,modal,warning-dialog,information-modal",
       "triggers": [
         "alert dialog",
         "alert",
-        "warning dialog",
-        "confirm"
+        "warning dialog"
       ],
       "warnings": [
-        "Use for critical actions that need user confirmation",
+        "For confirmations and destructive actions, use ConfirmationModal component instead",
         "Includes action and cancel buttons"
+      ],
+      "next_steps": [
+        "confirmation-modal"
       ],
       "file_size_kb": 0,
       "status": "reference_only",
@@ -1074,7 +1077,7 @@
       "title": "Avatar Component (Basic)",
       "path": "components/ui-kit/avatar.md",
       "type": "component",
-      "priority": "medium",
+      "priority": "low",
       "required": false,
       "read_when": "When implementing basic avatar/profile pictures without grid backgrounds",
       "use_cases": "avatar,profile-picture,user-image,basic-avatar,radix-avatar",
@@ -1083,7 +1086,7 @@
         "profile picture"
       ],
       "warnings": [
-        "Use custom-avatar from core for grid backgrounds and more features"
+        "PREFER custom-avatar component instead - has more features (grid backgrounds, better fallbacks)"
       ],
       "next_steps": [
         "custom-avatar"
