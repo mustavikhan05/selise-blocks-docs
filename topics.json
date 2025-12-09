@@ -273,6 +273,37 @@
       "file_size_kb": 28
     },
     {
+      "id": "language-i18n",
+      "title": "Internationalization (i18n) Recipe",
+      "path": "recipes/language_recipe.md",
+      "type": "recipe",
+      "priority": "high",
+      "required": "conditional",
+      "read_when": "Adding translations or internationalization to new pages",
+      "use_cases": "i18n,internationalization,translations,localization,languages,multilingual,react-i18next",
+      "triggers": [
+        "internationalization",
+        "i18n",
+        "translations",
+        "multiple languages",
+        "localization",
+        "language support",
+        "multilingual",
+        "translate text"
+      ],
+      "warnings": [
+        "MUST authenticate and set project context before creating modules",
+        "Always include 'common' module first in route-module-map",
+        "Use SCREAMING_SNAKE_CASE for translation key names",
+        "Include ALL available languages when adding translation keys",
+        "Hard refresh (Cmd+Shift+R) to clear translation cache after changes"
+      ],
+      "next_steps": [
+        "project-setup"
+      ],
+      "file_size_kb": 8
+    },
+    {
       "id": "component-reference",
       "title": "Component Quick Reference",
       "path": "component-catalog/component-quick-reference.txt",
